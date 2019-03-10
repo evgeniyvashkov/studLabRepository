@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    background: #24292e;
+}
+
+.header__wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header__logo {
+    width: 120px;
+    height: 60px;
+    margin-right: auto;
+    background: url('../img/logotype.png') center no-repeat;
+    background-size: contain;
+}
+
+.header__button {
+    padding: 4px 8px;
+    margin-left: 20px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #d1d5da;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.header__button:hover, .header__button:focus {
+    outline: none;
+    background: #fff;
+    color: #000;
+    border-color: #000;
+}
+
+@media (max-width: 479px) {
+    .header__button {
+        margin-left: 10px;
+    }
+}
