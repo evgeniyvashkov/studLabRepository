@@ -1,92 +1,68 @@
-function CreateElement() {
+var signInButton = document.getElementById('signIn');
+var startButton = document.querySelectorAll('.pricing-section__button')[0];
 
+//добавляет обработчик события на кнопку Sign In
+signInButton.addEventListener('click', showModal);
+startButton.addEventListener('click', showNotification);
+
+function showModal(e) {
+    document.body.classList.add('modal-open');
+    modal.makeLayOut();
 }
 
-//для показа блока
-CreateElement.prototype.show = function () {
-    document.body.appendChild(this.element);  
+function showNotification(e) {
+    notification.makeLayOut('notification', document.body);
 }
 
-//для скрытия блока
-CreateElement.prototype.hide = function () {
-
-}
-
-//создает базовую общую разметку (генерит разметку в идеале)
-CreateElement.prototype.makeLayOut = function (className) {
-    var element = document.createElement('div');
-    var closeButton = document.createElement('a');
-    closeButton.href='#';
-    element.className = className + '__content';
-    closeButton.className = 'button-close';
-    element.appendChild(closeButton);
+//функция для создания элемента. Принимает три параметра: 1)элемент 2)класс 3)куда вставить элемент
+function createNewElement(tagName, className, parentNode) {
+    var element = document.createElement(tagName);
+    element.className = className;
+    if (parentNode) parentNode.appendChild(element);
     return element;
 }
 
 
-//вынести в протоип методы, добавать наследование через object create
-function ModalWindow() {
-    var content = this.makeLayOut('modal-window');
-
-    //создает блок для модального окна
-    var modalWindow = document.createElement('div');
-    modalWindow.className='modal-window';
+function PopupElement() {
     
-    //добавлет контент модального окна
-    modalWindow.appendChild(content);
-
-    //текст модального окна
-    var modalWindowText = document.createElement('div');
-    modalWindowText.className = 'modal-window__text';
-    content.appendChild(modalWindowText);
-
-    this.element = modalWindow;
 }
 
- ModalWindow.prototype = CreateElement.prototype;//bad
+//создает базовую общую разметку (генерит разметку в идеале)
+PopupElement.prototype.makeLayOut = function (className, parentNode) {
+    var element = createNewElement('div', className + ' popup', null);
 
-//аналогично модалке
-function Notification(type, title, text) {
-    var container = this.makeLayOut('notification');
-    //добавляется уточняющий класс
-    container.classList.add('notification_' + type);
+    var closeButton = createNewElement('a', 'button-close', element);
+    closeButton.href = '#';
 
-    var title = document.createElement('div');
-    title.className = 'notification__title';
-    container.appendChild(title);
+    createNewElement('h2', className + '__title', element);
+    createNewElement('div', className + '__content', element);
 
-    var message = document.createElement('div');
-    message.className = 'notification__message';
-    message.innerHTML = text;
-    container.appendChild(message);
-
-    this.element = container;
+    parentNode.appendChild(element);
 }
 
-Notification.prototype = CreateElement.prototype;//bad
+PopupElement.prototype.removeLayout = function () {
+    this.remove();
+}
 
+
+function ModalWindow() {
+    //расширяется метод родителя
+    this.makeLayOut = function () {
+        var modalWrapper = createNewElement('div', 'modal-backdrop', document.body);
+        PopupElement.prototype.makeLayOut('modal-window', modalWrapper);
+    }
+}
+
+//вынести в протоип методы, добавать наследование через object create
+
+ModalWindow.prototype = Object.create(PopupElement.prototype);
 
 var modal = new ModalWindow();
 
-var notification = new Notification('error', 'ERROR', 'operation failed');
-
-// var modalWindow = document.getElementById('modal');
-var signInButton = document.getElementById('signIn');
-var modalClose = document.getElementById('modal-close');
-
-signInButton.addEventListener('click', showModal);
-
-// modalClose.addEventListener('click', closeModal);
-
-function showModal(e) {
-    document.body.classList.add('modal-open');
-    modal.show();
+function Notification(type, title, message, delay) {
+    PopupElement.apply(this)
 }
 
-function closeModal(e) {
-    e.preventDefault();
-    document.body.appendChild(notification.element);
-    document.body.classList.remove('modal-open');
-    modal.close(); 
-}
+Notification.prototype = Object.create(PopupElement.prototype);
 
+var notification = new Notification('error', 'ERROR', 3000);

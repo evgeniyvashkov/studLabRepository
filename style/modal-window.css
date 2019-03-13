@@ -1,29 +1,28 @@
-.modal-window {
+
+
+.modal-backdrop {
     width: 100%;
     min-height: 100vh;
     height: 100%;
     position: fixed;
-    z-index: 20000;
+    z-index: 10000;
     background: rgba(0, 0, 0, 0.7);
-    overflow: auto
+    overflow-y: scroll;
 }
 
-.modal-window_show {
-    /* display: block;
-    overflow: auto; */
-}
-
-.modal-window__content {
+.modal-window {
     max-width: 600px;
     width: 100%;
     min-height: 200px;
     margin: 10% auto 5%;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* z-index: 10001; */
     border-radius: 6px;
     background: #fff;
 }
 
-.modal-window__close,
 .button-close {
     width: 24px;
     height: 24px;
