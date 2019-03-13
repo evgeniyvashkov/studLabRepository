@@ -15,7 +15,33 @@ function showNotification(e) {
 }
 
 //функция для создания элемента. Принимает три параметра: 1)элемент 2)класс 3)куда вставить элемент
-function createNewElement(tagName, className, parentNode) {
+function PopupElement(elementType) {
+
+}
+
+PopupElement.prototype.makeLayOut = function (className, parentNode) {
+    var element = this.createNewElement('div', className + ' popup', null);
+
+    var closeButton = this.createNewElement('a', 'popup__button-close', element);
+    closeButton.href = '#';
+    closeButton.addEventListener('click', PopupElement.prototype.removeLayout, false)
+
+    this.createNewElement('h2', className + '__title', element);
+    this.createNewElement('div', className + '__content', element);
+
+    parentNode.appendChild(element);
+}
+
+PopupElement.prototype.removeLayout = function (e) {
+   e.preventDefault();
+    console.log(this.parentNode);
+    console.dir(this.parentNode.parentNode);
+    this.parentNode.parentNode.remove();
+    this.parentNode.remove();
+    
+}
+
+PopupElement.prototype.createNewElement = function (tagName, className, parentNode) {
     var element = document.createElement(tagName);
     element.className = className;
     if (parentNode) parentNode.appendChild(element);
@@ -23,46 +49,33 @@ function createNewElement(tagName, className, parentNode) {
 }
 
 
-function PopupElement() {
+function ModalWindow() {
     
 }
 
-//создает базовую общую разметку (генерит разметку в идеале)
-PopupElement.prototype.makeLayOut = function (className, parentNode) {
-    var element = createNewElement('div', className + ' popup', null);
-
-    var closeButton = createNewElement('a', 'button-close', element);
-    closeButton.href = '#';
-
-    createNewElement('h2', className + '__title', element);
-    createNewElement('div', className + '__content', element);
-
-    parentNode.appendChild(element);
-}
-
-PopupElement.prototype.removeLayout = function () {
-    this.remove();
-}
-
-
-function ModalWindow() {
-    //расширяется метод родителя
-    this.makeLayOut = function () {
-        var modalWrapper = createNewElement('div', 'modal-backdrop', document.body);
-        PopupElement.prototype.makeLayOut('modal-window', modalWrapper);
-    }
-}
-
-//вынести в протоип методы, добавать наследование через object create
-
 ModalWindow.prototype = Object.create(PopupElement.prototype);
 
-var modal = new ModalWindow();
+ModalWindow.prototype.makeLayOut = function () {
+    var modalWrapper = this.createNewElement('div', 'modal-backdrop', document.body);
+    PopupElement.prototype.makeLayOut.apply(this, ['modal-window', modalWrapper]);
+}
+
+
 
 function Notification(type, title, message, delay) {
-    PopupElement.apply(this)
+    this.type = type;
+    this.title = title;
+    this.message = message;
+    this.delay = delay;
 }
 
 Notification.prototype = Object.create(PopupElement.prototype);
 
+var modal = new ModalWindow();
 var notification = new Notification('error', 'ERROR', 3000);
+
+console.log(modal.elementType);
+console.log(modal.buttonClose);
+
+console.log(notification.elementType);
+console.log(notification.buttonClose);
