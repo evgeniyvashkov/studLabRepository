@@ -14,23 +14,23 @@
     min-height: 200px;
     position: relative;
     margin: 10% auto 5%;
+    padding: 20px 30px;
+    box-sizing: border-box;
     border-radius: 6px;
     background: #fff;
 }
 
-.popup__button-close {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: url('../img/button-close.svg') center;
-    cursor: pointer;
-    transition: background 200ms ease-in-out;
-    background-size: contain; 
+.modal-window__title {
+    font-size: 30px;
+    margin: 0 0 20px;
 }
 
-.popup__button-close:hover {
-    background: url('../img/button-close-hover.svg') center;
+.modal-window__content {
+    font-size: 24px;
+}
 
+@media (max-width: 479px) {
+    .modal-window {
+        padding: 20px;
+    }
 }
