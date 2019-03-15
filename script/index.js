@@ -54,7 +54,8 @@ function showNotification(e) {
 
         //todo возможно есть более "элегантное" решение, надо подумать/поискать
         setTimeout(function () {
-            document.querySelectorAll('.notification')[0].remove();
+            var notificationItem = document.querySelectorAll('.notification')[0];
+            if(notificationItem) notificationItem.remove();
         }, notification.delay);
     };
 
