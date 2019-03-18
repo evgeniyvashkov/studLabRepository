@@ -55,7 +55,8 @@
     margin-bottom: 40px;
 }
 
-.pricing-section__plan-cost, .pricing-section__plan-currency {
+.pricing-section__plan-cost,
+.pricing-section__plan-currency {
     font-size: 30px;
 }
 

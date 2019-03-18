@@ -18,19 +18,69 @@
     box-sizing: border-box;
     border-radius: 6px;
     background: #fff;
+    animation: fadeIn 0.2s ease-in;
+    animation-duration: 0.2s;
+}
+
+.modal-window .popup__button-close {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: url('../img/button-close.png') center / cover;
+    cursor: pointer;
+    transition: background 200ms ease-in-out;
+    background-size: contain;
 }
 
 .modal-window__title {
     font-size: 30px;
-    margin: 0 0 20px;
+    margin: 0 0 20px
 }
 
 .modal-window__content {
     font-size: 24px;
 }
 
+@media(max-width: 767px) {
+    .modal-window {
+        max-width: 100%;
+        min-height: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
 @media (max-width: 479px) {
     .modal-window {
         padding: 20px;
+    }
+}
+
+.modal-window {
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-duration: .5s;
+    -webkit-animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+        opacity: 0.0;
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }

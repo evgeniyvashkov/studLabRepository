@@ -1,0 +1,126 @@
+.notification-wrapper {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 1001;
+    max-width: 300px;
+    width: 100%;
+}
+
+.notification {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 20px 40px 20px 80px;
+    margin-bottom: 10px;
+    background: #fff left 25px center no-repeat;
+    border-radius: 4px;
+    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.2);
+    transition: all 300ms ease-out;
+    right: -500px;
+    animation: show-notification 5s;
+    animation-iteration-count: 1;
+}
+
+.notification:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 80px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.notification .popup__button-close {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: url('../img/button-close.png') center no-repeat / cover;
+    cursor: pointer;
+}
+
+.notification__title {
+    box-sizing: border-box;
+    padding-right: 40px;
+    margin: 0 0 5px;
+    color: #3e3e3e;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.notification__content {
+    font-size: 15px;
+}
+
+.error.notification {
+    background-image: url('../img/notification-error.png');
+}
+
+.error.notification:before {
+    background-color: #ef5b43;
+}
+
+.success.notification {
+    background-image: url('../img/notification-succsess.png');
+}
+
+.success.notification::before {
+    background-color: #99d200;
+}
+
+.warning.notification:before {
+    background-color: #ffc43c;
+}
+
+.warning.notification {
+    background-image: url('../img/notification-warning.png');
+}
+
+.info.notification {
+    background-image: url('../img/notification-info.png');
+}
+
+.info.notification::before {
+    background-color: #5498d4;
+}
+
+@media (max-width: 767px) {
+    .notification-wrapper {
+        right: 10px;
+    }
+}
+
+@media (max-width: 479px) {
+    .notification {
+        width: calc(100% - 20px);
+        right: 0px;
+        margin: 0 10px;
+    }
+}
+
+@keyframes show-notification {
+    0% {
+        min-height: 80px;
+        top: 0;
+        right: -500%;
+    }
+    20% {
+        right: 0;
+    }
+    80% {
+        min-height: 80px;
+        opacity: 1;
+        top: 0;
+    }
+    97%, 100% {
+        min-height: 0;
+        opacity: 0;
+        right: 0;
+        top: -20px;
+    }
+}

@@ -12,11 +12,7 @@ pricingSectionContent.addEventListener('click', showNotification);
 //По клику создается lauout для модального окна и добавляюся стили для фиксированого body
 //также добавляется паддинг для хередра и боди равный ширине скрол бара
 function showModal(e) {
-    var modal = new ModalWindow('Modal Title text', 'Modal Content text');
-    var paddingRight = modal.checkSrollWidth();
-    body.classList.toggle('modal-open');
-    body.style.paddingRight = paddingRight + 'px';
-    header.style.paddingRight = paddingRight + 'px';
+    var modal = new ModalWindow('Modal Title text', '');
     modal.makeLayOut();
 }
 
@@ -30,22 +26,22 @@ function showNotification(e) {
 
         switch (notificationType) {
             case 'free': {
-                var notification = new Notification('error', 'ERROR', 'Try again', 4000);
+                var notification = new Notification('error', 'ERROR', 'Try again', 5000);
                 break;
             }
 
             case 'professional': {
-                var notification = new Notification('success', 'successful', 'Try again', 4000);
+                var notification = new Notification('success', 'successful', 'Congratulation!', 5000);
                 break;
             }
 
             case 'business': {
-                var notification = new Notification('warning', 'warning', 'Try again', 4000);
+                var notification = new Notification('warning', 'warning', 'Сheck you mail', 5000);
                 break;
             }
 
             case 'business+': {
-                var notification = new Notification('info', 'Information', 'Try again', 4000);
+                var notification = new Notification('info', 'Information', 'For business partners only', 5000);
                 break;
             }
         }
@@ -55,12 +51,9 @@ function showNotification(e) {
         //todo возможно есть более "элегантное" решение, надо подумать/поискать
         setTimeout(function () {
             var notificationItem = document.querySelectorAll('.notification')[0];
-            if(notificationItem) notificationItem.remove();
+            if (notificationItem) notificationItem.remove();
         }, notification.delay);
     };
-
-
-
 }
 
 //Родительский элемент в прототипе которого описаны основные методы
@@ -105,7 +98,7 @@ ModalWindow.prototype = Object.create(PopupElement.prototype);
 
 //Расширение родительского метода makeLayout 
 ModalWindow.prototype.makeLayOut = function () {
-
+    var paddingRight = ModalWindow.prototype.checkSrollWidth.apply(this, []);
     var modalWrapper = this.createNewElement('div', 'modal-backdrop', document.body, null);
 
     PopupElement.prototype.makeLayOut.apply(this, [
@@ -115,21 +108,25 @@ ModalWindow.prototype.makeLayOut = function () {
         this.content
     ]);
 
+    body.classList.toggle('modal-open');
+    body.style.paddingRight = paddingRight + 'px';
+    header.style.paddingRight = paddingRight + 'px';
+
     //По клику затемненной области модального окна закрывает окно
     modalWrapper.addEventListener('click', function (event) {
         if (event.target === this) {
-            this.remove();
             ModalWindow.prototype.clearBodySyles();
+            this.remove();
         }
     });
-
 }
 
 //Расширение родительского метода removeLayout 
 ModalWindow.prototype.removeLayout = function () {
-    this.parentNode.parentNode.remove();
-    PopupElement.prototype.removeLayout.apply(this);
-    ModalWindow.prototype.clearBodySyles();
+    PopupElement.prototype.removeLayout.apply(this, []);
+    ModalWindow.prototype.clearBodySyles.apply(this, [])
+
+    document.querySelector('.modal-backdrop').remove();
 }
 
 //Метод для удаление стилей для body при закрытии модального окна
