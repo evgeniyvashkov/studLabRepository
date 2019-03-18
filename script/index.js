@@ -12,10 +12,9 @@ pricingSectionContent.addEventListener('click', showNotification);
 //По клику создается lauout для модального окна и добавляюся стили для фиксированого body
 //также добавляется паддинг для хередра и боди равный ширине скрол бара
 function showModal(e) {
-    var modal = new ModalWindow('Modal Title text', '');
+    var modal = new ModalWindow('Modal Title text', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem consectetur tenetur, tempore laborum consequuntur suscipit cum distinctio itaque quas delectus qui, odit enim eius blanditiis commodi! Dolorem totam, corporis veniam corrupti quis magnam non tenetur, vitae ipsam reiciendis doloribus eligendi, ab quo! Esse aliquid incidunt error possimus temporibus ipsum unde!');
     modal.makeLayOut();
 }
-
 
 //по клику создает уведомление и вызывает функцию удаления через заданную задержку
 function showNotification(e) {
@@ -26,22 +25,22 @@ function showNotification(e) {
 
         switch (notificationType) {
             case 'free': {
-                var notification = new Notification('error', 'ERROR', 'Try again', 5000);
+                var notification = new Notification('error', 'ERROR', 'Try again', 6000);
                 break;
             }
 
             case 'professional': {
-                var notification = new Notification('success', 'successful', 'Congratulation!', 5000);
+                var notification = new Notification('success', 'successful', 'Congratulation!', 6000);
                 break;
             }
 
             case 'business': {
-                var notification = new Notification('warning', 'warning', 'Сheck you mail', 5000);
+                var notification = new Notification('warning', 'warning', 'Сheck you mail', 6000);
                 break;
             }
 
             case 'business+': {
-                var notification = new Notification('info', 'Information', 'For business partners only', 5000);
+                var notification = new Notification('info', 'Information', 'For business partners only', 6000);
                 break;
             }
         }
@@ -156,7 +155,7 @@ function Notification(type, title, message, delay) {
 Notification.prototype = Object.create(PopupElement.prototype);
 
 Notification.prototype.makeLayOut = function () {
-    var notificationWrapper = document.querySelector('.notification-wrapper') || PopupElement.prototype.createNewElement('div', 'notification-wrapper', body);
+    var notificationWrapper = document.querySelector('.notification-wrapper') || PopupElement.prototype.createNewElement('div', 'notification-wrapper', body, null);
 
     PopupElement.prototype.makeLayOut.apply(this, [
         'notification',

@@ -28,7 +28,8 @@
     position: absolute;
     top: 14px;
     right: 14px;
-    background: url('../img/button-close.png') center / cover;
+    background: url('../img/button-close.png') center no-repeat;
+    background-size: contain;
     cursor: pointer;
     transition: background 200ms ease-in-out;
     background-size: contain;
@@ -59,12 +60,7 @@
 }
 
 .modal-window {
-    animation-name: fadeIn;
-    -webkit-animation-name: fadeIn;
-    animation-duration: .5s;
-    -webkit-animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    -webkit-animation-timing-function: ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
