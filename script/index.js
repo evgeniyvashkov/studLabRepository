@@ -162,7 +162,7 @@ Notification.prototype.makeLayOut = function () {
         'notification',
         notificationWrapper,
         this.title,
-        this.message,
+        this.content,
         this.type
     ]);
 }
