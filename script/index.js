@@ -25,22 +25,22 @@ function showNotification(e) {
 
         switch (notificationType) {
             case 'free': {
-                var notification = new Notification('error', 'ERROR', 'Try again', 6000);
+                var notification = new Notification('error', 'ERROR', 'Try again', 5000);
                 break;
             }
 
             case 'professional': {
-                var notification = new Notification('success', 'successful', 'Congratulation!', 6000);
+                var notification = new Notification('success', 'successful', 'Congratulation!', 5000);
                 break;
             }
 
             case 'business': {
-                var notification = new Notification('warning', 'warning', 'Сheck you mail', 6000);
+                var notification = new Notification('warning', 'warning', 'Сheck you mail', 5000);
                 break;
             }
 
             case 'business+': {
-                var notification = new Notification('info', 'Information', 'For business partners only', 6000);
+                var notification = new Notification('info', 'Information', 'For business partners only', 5000);
                 break;
             }
         }
@@ -56,7 +56,10 @@ function showNotification(e) {
 }
 
 //Родительский элемент в прототипе которого описаны основные методы
-function PopupElement() { }
+function PopupElement(title, content) {
+    this.title = title;
+    this.content = content;
+}
 
 //генерирует layout для popup элемента
 PopupElement.prototype.makeLayOut = function (className, parentNode, title, content, type) {
@@ -88,8 +91,7 @@ PopupElement.prototype.createNewElement = function (tagName, className, parentNo
 
 //Функция-консруктор для создания новых модальных окон
 function ModalWindow(title, content) {
-    this.title = title;
-    this.content = content;
+    PopupElement.apply(this, [title, content]);
 }
 
 //Устанавливается наследование от компонента Popup
@@ -123,7 +125,7 @@ ModalWindow.prototype.makeLayOut = function () {
 //Расширение родительского метода removeLayout 
 ModalWindow.prototype.removeLayout = function () {
     PopupElement.prototype.removeLayout.apply(this, []);
-    ModalWindow.prototype.clearBodySyles.apply(this, [])
+    ModalWindow.prototype.clearBodySyles.apply(this, []);
 
     document.querySelector('.modal-backdrop').remove();
 }
@@ -145,10 +147,9 @@ ModalWindow.prototype.checkSrollWidth = function () {
 }
 
 //Функция конструктор для создания уведомлений
-function Notification(type, title, message, delay) {
+function Notification(type, title, content, delay) {
+    PopupElement.apply(this, [title, content]);
     this.type = type;
-    this.title = title;
-    this.message = message;
     this.delay = delay;
 }
 
