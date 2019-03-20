@@ -1,10 +1,10 @@
 var body = document.body;
 var signInButton = document.getElementById('signIn');
 var signUpButton = document.getElementById('signUp');
-var header = document.querySelector('.header');
-var pricingSectionContent = document.querySelector('.pricing-section__content');
+var header = document.getElementsByClassName('header')[0];
+var pricingSectionContent = document.getElementsByClassName('pricing-section__content')[0];
 
-//до
+//добавляются слушатели событий
 signInButton.addEventListener('click', showModal);
 signUpButton.addEventListener('click', showModal);
 pricingSectionContent.addEventListener('click', showNotification);
@@ -20,8 +20,10 @@ function showModal(e) {
 function showNotification(e) {
     //так как обработчик событий всеит на секции, по клику смотрю какой класс у e.targetParent и в зависимости от этого 
     //генерирую различные уведомления
-    if (e.target.className === 'pricing-section__button') {
-        var notificationType = e.target.parentNode.classList[1];
+    var targetElement = e.target;
+
+    if (targetElement.classList.contains('pricing-section__button')) {
+        var notificationType = targetElement.parentNode.classList[1];
 
         switch (notificationType) {
             case 'free': {
@@ -46,12 +48,6 @@ function showNotification(e) {
         }
 
         notification.makeLayOut();
-
-        //todo возможно есть более "элегантное" решение, надо подумать/поискать
-        setTimeout(function () {
-            var notificationItem = document.querySelectorAll('.notification')[0];
-            if (notificationItem) notificationItem.remove();
-        }, notification.delay);
     };
 }
 
@@ -65,8 +61,8 @@ function PopupElement(title, content) {
 PopupElement.prototype.makeLayOut = function (className, parentNode, title, content, type) {
     var type = type || '';
     var element = this.createNewElement('div', className + ' popup ' + type, null, null);
-
     var closeButton = this.createNewElement('div', 'popup__button-close', element, null);
+
     closeButton.addEventListener('click', this.removeLayout, false)
 
     this.createNewElement('h2', className + '__title', element, title, null);
@@ -83,23 +79,27 @@ PopupElement.prototype.removeLayout = function () {
 //Вспомагательный метод для: создания нового элемента, добавления ему класса, контента и место куда его
 PopupElement.prototype.createNewElement = function (tagName, className, parentNode, content) {
     var element = document.createElement(tagName);
+
     element.className = className;
     element.textContent = content;
+
     if (parentNode) parentNode.appendChild(element);
+
     return element;
 }
 
 //Функция-консруктор для создания новых модальных окон
 function ModalWindow(title, content) {
-    PopupElement.apply(this, [title, content]);
+    PopupElement.apply(this, arguments);
 }
 
 //Устанавливается наследование от компонента Popup
 ModalWindow.prototype = Object.create(PopupElement.prototype);
+ModalWindow.prototype.constructor = ModalWindow;
 
 //Расширение родительского метода makeLayout 
 ModalWindow.prototype.makeLayOut = function () {
-    var paddingRight = ModalWindow.prototype.checkSrollWidth.apply(this, []);
+    var paddingRight = this.checkSrollWidth();
     var modalWrapper = this.createNewElement('div', 'modal-backdrop', document.body, null);
 
     PopupElement.prototype.makeLayOut.apply(this, [
@@ -109,14 +109,14 @@ ModalWindow.prototype.makeLayOut = function () {
         this.content
     ]);
 
-    body.classList.toggle('modal-open');
+    body.classList.add('modal-open');
     body.style.paddingRight = paddingRight + 'px';
     header.style.paddingRight = paddingRight + 'px';
 
     //По клику затемненной области модального окна закрывает окно
     modalWrapper.addEventListener('click', function (event) {
         if (event.target === this) {
-            ModalWindow.prototype.clearBodySyles();
+            ModalWindow.prototype.clearBodyStyles();//Вопрос : тут я не наследуюсь ни от кого, поэтому и вызываю функцию из прототипа,Нужно ли наследовать ?
             this.remove();
         }
     });
@@ -124,39 +124,44 @@ ModalWindow.prototype.makeLayOut = function () {
 
 //Расширение родительского метода removeLayout 
 ModalWindow.prototype.removeLayout = function () {
-    PopupElement.prototype.removeLayout.apply(this, []);
-    ModalWindow.prototype.clearBodySyles.apply(this, []);
+    //Метод вызывается по клику на кнопку закрыть, следовательно this равно самой кнопке,
+    //и при вызове this.clearBodyStyle() ищется метод у кнопки, а его нету...
+    PopupElement.prototype.removeLayout.apply(this);
+    ModalWindow.prototype.clearBodyStyles.apply(this);
 
-    document.querySelector('.modal-backdrop').remove();
+    document.getElementsByClassName('modal-backdrop')[0].remove();
 }
 
 //Метод для удаление стилей для body при закрытии модального окна
-ModalWindow.prototype.clearBodySyles = function () {
-    body.classList.toggle('modal-open');
+ModalWindow.prototype.clearBodyStyles = function () {
+    body.classList.remove('modal-open');
     body.removeAttribute('style');
     header.removeAttribute('style');
 }
 
-//Метод для определения ширины скрола 
+//Метод для определения ширины скрола  todo: найти способ без создания div'a
 ModalWindow.prototype.checkSrollWidth = function () {
     var div = document.createElement('div');
     document.body.appendChild(div);
+
     var srcroolbarWidth = window.innerWidth - div.clientWidth;
     div.remove();
+
     return srcroolbarWidth;
 }
 
 //Функция конструктор для создания уведомлений
 function Notification(type, title, content, delay) {
-    PopupElement.apply(this, [title, content]);
+    PopupElement.apply(this, arguments);
     this.type = type;
     this.delay = delay;
 }
 
 Notification.prototype = Object.create(PopupElement.prototype);
+Notification.prototype.constructor = Notification;
 
 Notification.prototype.makeLayOut = function () {
-    var notificationWrapper = document.querySelector('.notification-wrapper') || PopupElement.prototype.createNewElement('div', 'notification-wrapper', body, null);
+    var notificationWrapper = document.getElementsByClassName('notification-wrapper')[0] || this.createNewElement('div', 'notification-wrapper', body, null);
 
     PopupElement.prototype.makeLayOut.apply(this, [
         'notification',
@@ -165,4 +170,18 @@ Notification.prototype.makeLayOut = function () {
         this.content,
         this.type
     ]);
+
+    this.autoHide();
+}
+
+//метод для автоматического закрытия уведомлений
+Notification.prototype.autoHide = function () {
+    setTimeout(function () {
+        var notificationItem = document.getElementsByClassName('notification')[0];
+
+        if (notificationItem) {
+            notificationItem.remove();
+        }
+
+    }, this.delay);
 }
