@@ -99,6 +99,7 @@ ModalWindow.prototype.constructor = ModalWindow;
 
 //Расширение родительского метода makeLayout 
 ModalWindow.prototype.makeLayOut = function () {
+    var _self = this;//сохраняю контекст
     var paddingRight = this.checkSrollWidth();
     var modalWrapper = this.createNewElement('div', 'modal-backdrop', document.body, null);
 
@@ -115,19 +116,19 @@ ModalWindow.prototype.makeLayOut = function () {
 
     //По клику затемненной области модального окна закрывает окно
     modalWrapper.addEventListener('click', function (event) {
-        if (event.target === this) {
-            ModalWindow.prototype.clearBodyStyles();//Вопрос : тут я не наследуюсь ни от кого, поэтому и вызываю функцию из прототипа,Нужно ли наследовать ?
+        if (event.target === this) { 
             this.remove();
+            _self.clearBodyStyles();
         }
     });
 }
 
 //Расширение родительского метода removeLayout 
 ModalWindow.prototype.removeLayout = function () {
-    //Метод вызывается по клику на кнопку закрыть, следовательно this равно самой кнопке,
-    //и при вызове this.clearBodyStyle() ищется метод у кнопки, а его нету...
     PopupElement.prototype.removeLayout.apply(this);
-    ModalWindow.prototype.clearBodyStyles.apply(this);
+    debugger
+    //todo : this.clearBodyStyles()
+    modal.clearBodyStyles();
 
     document.getElementsByClassName('modal-backdrop')[0].remove();
 }
@@ -139,15 +140,9 @@ ModalWindow.prototype.clearBodyStyles = function () {
     header.removeAttribute('style');
 }
 
-//Метод для определения ширины скрола  todo: найти способ без создания div'a
+//Метод для определения ширины скрола
 ModalWindow.prototype.checkSrollWidth = function () {
-    var div = document.createElement('div');
-    document.body.appendChild(div);
-
-    var srcroolbarWidth = window.innerWidth - div.clientWidth;
-    div.remove();
-
-    return srcroolbarWidth;
+    return parseInt(window.innerWidth) - parseInt(document.documentElement.clientWidth);
 }
 
 //Функция конструктор для создания уведомлений
