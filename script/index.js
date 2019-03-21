@@ -126,7 +126,6 @@ ModalWindow.prototype.makeLayOut = function () {
 //Расширение родительского метода removeLayout 
 ModalWindow.prototype.removeLayout = function () {
     PopupElement.prototype.removeLayout.apply(this);
-    debugger
     //todo : this.clearBodyStyles()
     modal.clearBodyStyles();
 
