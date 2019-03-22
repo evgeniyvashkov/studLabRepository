@@ -59,11 +59,12 @@ function PopupElement(title, content) {
 
 //генерирует layout для popup элемента
 PopupElement.prototype.makeLayOut = function (className, parentNode, title, content, type) {
+    var self = this;
     var type = type || '';
     var element = this.createNewElement('div', className + ' popup ' + type, null, null);
     var closeButton = this.createNewElement('div', 'popup__button-close', element, null);
 
-    closeButton.addEventListener('click', this.removeLayout, false)
+    closeButton.addEventListener('click', self.removeLayout.bind(self, closeButton), false);
 
     this.createNewElement('h2', className + '__title', element, title, null);
     this.createNewElement('div', className + '__content', element, content);
@@ -72,8 +73,8 @@ PopupElement.prototype.makeLayOut = function (className, parentNode, title, cont
 }
 
 //удаление блока popup по клику на кнопку закрыть 
-PopupElement.prototype.removeLayout = function () {
-    this.parentNode.remove();
+PopupElement.prototype.removeLayout = function (closeButton) {
+    closeButton.parentNode.remove();
 }
 
 //Вспомагательный метод для: создания нового элемента, добавления ему класса, контента и место куда его
@@ -116,7 +117,7 @@ ModalWindow.prototype.makeLayOut = function () {
 
     //По клику затемненной области модального окна закрывает окно
     modalWrapper.addEventListener('click', function (event) {
-        if (event.target === this) { 
+        if (event.target === this) {
             this.remove();
             _self.clearBodyStyles();
         }
@@ -124,12 +125,10 @@ ModalWindow.prototype.makeLayOut = function () {
 }
 
 //Расширение родительского метода removeLayout 
-ModalWindow.prototype.removeLayout = function () {
-    PopupElement.prototype.removeLayout.apply(this);
-    //todo : this.clearBodyStyles()
-    modal.clearBodyStyles();
-
+ModalWindow.prototype.removeLayout = function (closeButton) {
+    PopupElement.prototype.removeLayout.apply(this, arguments);
     document.getElementsByClassName('modal-backdrop')[0].remove();
+    this.clearBodyStyles();
 }
 
 //Метод для удаление стилей для body при закрытии модального окна
