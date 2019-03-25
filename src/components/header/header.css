@@ -14,10 +14,11 @@
 }
 
 .header__logo {
-    width: 120px;
+    width: 115px;
     height: 60px;
     margin-right: auto;
-    background: url('../img/logotype.png') center no-repeat;
+    font-size: 0;
+    background: url('logotype.png') center no-repeat;
     background-size: contain;
 }
 
