@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Button from '../button';
-// import ModalWindowHandler from '../../pop-up';
+import { showModal } from '../pop-up/pop-up';
 
 import './header.css';
 
@@ -12,8 +12,10 @@ export default class Header extends Component {
                 <div className='header__wrapper'>
                     <a href='index.html' className='header__logo'>logo</a>
                     <Button classList='header__button sign-in'
-                        name='sign-in' />
-                    <Button classList='header__button sign-up' name='sign-up' />
+                        value='sign-in' 
+                        onClick = {showModal}
+                        />
+                    <Button classList='header__button sign-up' value='sign-up' />
                 </div>
             </header>
         )

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import Button from '../button';
+import { showNotification } from '../pop-up/pop-up';
 
 import './pricing-section__plan.css';
+
 
 export default class PricingSectionPlan extends Component {
     constructor(props) {
@@ -35,7 +38,10 @@ export default class PricingSectionPlan extends Component {
                         <div>month</div>
                     </div>
                 </div>
-                <button className='pricing-section__button'>start</button>
+                <Button classList='pricing-section__button'
+                        onClick = {showNotification}
+                        value = 'start'
+                />
             </div>
         )
     }
