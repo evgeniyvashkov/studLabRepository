@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Button from '../button';
+// import ModalWindowHandler from '../../pop-up';
+
 import './header.css';
 
 export default class Header extends Component {
@@ -8,8 +11,9 @@ export default class Header extends Component {
             <header className='header'>
                 <div className='header__wrapper'>
                     <a href='index.html' className='header__logo'>logo</a>
-                    <button className='header__button sign-in' onClick={(e)=>console.log('Clicked')}>sign-in</button>
-                    <button className='header__button sign-up'>sign-up</button>
+                    <Button classList='header__button sign-in'
+                        name='sign-in' />
+                    <Button classList='header__button sign-up' name='sign-up' />
                 </div>
             </header>
         )

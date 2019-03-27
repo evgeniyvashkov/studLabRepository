@@ -36,6 +36,15 @@
     margin-bottom: 40px;
 }
 
+.pricing-section__plan-cost::after {
+    content: '/';
+    margin-left: 3px;
+}
+
+.pricing-section__plan-currency {
+    margin-right: 3px;
+}
+
 .pricing-section__plan-cost,
 .pricing-section__plan-currency {
     font-size: 30px;

@@ -8,19 +8,12 @@ import '../../normalize.css';
 import './app.css';
 
 export default class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            showModal : false
-        }
-    }
-
     render() {
         return (
             <div className='app-content'>
-               <Header />
-               <PageContent />
-               <Footer />
+                <Header />
+                <PageContent />
+                <Footer />
             </div>
         )
     }
