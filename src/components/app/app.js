@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { Header } from '../Header';
 import { PageContent } from '../Page-content';
@@ -12,11 +12,11 @@ import './app.css';
 export class App extends Component {
     render() {
         return (
-            <div className='app-content'>
+            <Fragment>
                 <Header />
                 <PageContent plans={plans} loginData={loginData} />
                 <Footer />
-            </div>
+            </Fragment>
         )
     }
 }

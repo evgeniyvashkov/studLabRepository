@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { PromoSection } from '../Promo-section';
 import { PricingSection } from '../Pricing-section';
@@ -10,18 +11,16 @@ export class PageContent extends Component {
         console.log('clicked!', e.target)
     }
 
-    onchangeInput = (e) => {
-        console.log('typed!', this)
-    }
-
     render() {
         const { plans, loginData } = this.props;
 
         return (
             <div className='page-content'>
-                <PromoSection loginData={loginData} onchangeInput={this.onchangeInput} />
-                <PricingSection plans={plans} handleClick={this.handleClick} />
-            </div>
+                <BrowserRouter>
+                    <PromoSection loginData={loginData} />
+                    <PricingSection plans={plans} handleClick={this.handleClick} />
+                </BrowserRouter>
+            </div >
         )
     }
 }

@@ -10,7 +10,7 @@ body {
     overflow: hidden;
 }
 
-.app-content {
+#root {
     display: flex;
     flex-direction: column;
 }

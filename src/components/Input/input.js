@@ -2,17 +2,13 @@ import React from 'react';
 
 import './input.css';
 
-export const Input = (props) => {
-    console.log(props);
-
-    return (
-        < input
-            name={props.name}
-            type={props.type}
-            className='form__group-input'
-            onChange={props.onchangeInput}
-            placeholder={props.placeholder ? props.placeholder : ''}
-        />
-    )
-}
+export const Input = ({ name, type, placeholder, onchangeInput }) => (
+    <input
+        name={name}
+        type={type}
+        className='form__group-input'
+        onChange={onchangeInput}
+        placeholder={placeholder ? placeholder : ''}
+    />
+)
 

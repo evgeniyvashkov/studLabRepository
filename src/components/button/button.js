@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const Button = (props) =>
-    <button className={props.classList} onClick={props.onClick}>
-        {props.value}
+import './button.css'
+
+export const Button = ({ classList, value, onClick }) =>
+    <button className={classList} onClick={onClick}>
+        {value}
     </button>

@@ -55,25 +55,6 @@
     font-size: 12px;
 }
 
-.pricing-section__button {
-    width: 100%;
-    max-width: 290px;
-    height: 50px;
-    font-size: 15px;
-    line-height: 50px;
-    text-align: center;
-    border: 1px solid #2099fd;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 300ms ease;
-    background: #2099fd;
-    color: #fff;
-}
-
-.pricing-section__button:hover {
-    background: #0086ff;
-}
-
 @media (max-width: 1023px) {
     .pricing-section__content {
         max-width: 640px;
