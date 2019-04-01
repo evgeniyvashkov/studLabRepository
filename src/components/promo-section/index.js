@@ -1,3 +1,3 @@
-import PromoSection from './promo-section';
+import { PromoSection } from './promo-section';
 
-export default PromoSection;
+export { PromoSection };

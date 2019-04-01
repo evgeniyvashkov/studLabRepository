@@ -1,4 +1,4 @@
-import './pop-up.css'
+// import './pop-up.css'
 import './modal-window.css'
 import './notification.css'
 
