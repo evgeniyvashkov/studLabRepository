@@ -1,0 +1,9 @@
+.form__group-input {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #d1d5da;
+}

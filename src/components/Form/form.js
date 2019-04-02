@@ -11,7 +11,7 @@ export class Form extends Component {
     }
 
     onchangeInput = (e) => {
-        const { name, value } = e.target;
+        const { value } = e.target;
 
         this.setState(() => ({
             usernameIsEmpty: (value.length > 0) ? false : true,
