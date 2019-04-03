@@ -1,70 +1,85 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FormGroup } from '../Form-group';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
 
-export const RegistrationForm = () => (
-    <form action='#' method='POST' className='form registration-form'>
-        <FormGroup
-            fieldData={
-                {
-                    label: "email",
-                    type: "email",
-                    placeholder: "enter your email",
-                    value: "",
-                }
-            }
-        />
+export class RegistrationForm extends Component {
+    onchangeInput = (e) => {
+        console.log('typing...');
+    }
 
-        <FormGroup
-            fieldData={
-                {
-                    label: "customer's username",
-                    type: "text",
-                    placeholder: "enter your username",
-                    value: ""
-                }
-            }
-        />
+    handleOnSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form sent');
+    }
 
-        <FormGroup
-            fieldData={
-                {
-                    label: "Card number",
-                    type: "text",
-                    placeholder: "enter your username",
-                    value: ""
-                }
-            }
-        />
+    render() {
+        return (
+            <form action='#'
+                method='POST'
+                className='form registration-form'
+                onSubmit={this.handleOnSubmit}
+            >
+                <FormGroup
+                    fieldData={
+                        {
+                            label: "email",
+                            type: "email",
+                            placeholder: "enter your email",
+                        }
+                    }
 
-        <FormGroup
-            fieldData={
-                {
-                    label: "password",
-                    type: "password",
-                    placeholder: "enter password",
-                    value: ""
-                }
-            }
-        />
+                    onchangeInput={this.onchangeInput}
+                />
 
-        <FormGroup
-            fieldData={
-                {
-                    label: "Re-enter password",
-                    type: "password",
-                    placeholder: "Re-enter password",
-                    value: ""
-                }
-            }
-        />
+                <FormGroup
+                    fieldData={
+                        {
+                            label: "customer's username",
+                            type: "text",
+                            placeholder: "enter your username",
+                        }
+                    }
+                />
 
-        <Button classList='form__button button-green' value='Log-in' />
-        <Checkbox />
+                <FormGroup
+                    fieldData={
+                        {
+                            label: "Card number",
+                            type: "text",
+                            placeholder: "enter your username",
+                        }
+                    }
+                />
 
-        <Link to='/license'>{'Some text for link'}</Link>
-    </form>
-)
+                <FormGroup
+                    fieldData={
+                        {
+                            label: "password",
+                            type: "password",
+                            placeholder: "enter password",
+                        }
+                    }
+                />
+
+                <FormGroup
+                    fieldData={
+                        {
+                            label: "Re-enter password",
+                            type: "password",
+                            placeholder: "Re-enter password",
+                        }
+                    }
+                />
+
+                <Button classList='form__button button-green' value='Log-in' />
+
+                <Checkbox id={'registration-checkbox'}>
+                    <Link to='/license'>{'Some text for link'}</Link>
+                </Checkbox>
+            </form>
+        )
+    }
+}
