@@ -1,0 +1,4 @@
+.tab__panel-item:not(.active) {
+    height: 0;
+    overflow: hidden;
+}

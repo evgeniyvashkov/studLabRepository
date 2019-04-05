@@ -28,7 +28,7 @@ export const PricingSectionPlan = (props) => {
                     <div>month</div>
                 </div>
             </div>
-            <Button classList='pricing-section__button button-blue'
+            <Button className={'pricing-section__button button-blue'}
                 onClick={handleClick}
                 value='start'
             />

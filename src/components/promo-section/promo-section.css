@@ -14,7 +14,7 @@
     font-weight: normal;
 }
 
-.promo-section .tabbar {
+.promo-section .tab-panel {
     flex: 0 0 400px;
     background: #fafbfc;
 }

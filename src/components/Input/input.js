@@ -1,14 +1,29 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './input.css';
 
-export const Input = ({ name, type, placeholder, onchangeInput }) => (
-    <input
-        name={name}
-        type={type}
-        className='form__group-input'
-        onChange={onchangeInput}
-        placeholder={placeholder ? placeholder : ''}
-    />
-)
+export const Input = ({
+    id, className, label, error, ...attrs
+}) => {
+
+    const classes = classNames(
+        'form__group-input',
+        { error },
+    )
+
+    return (
+        <div className='form__group'>
+            {label &&
+                <label htmlFor={id} className="form__group-label">{label}</label>
+            }
+
+            <input className={classes} {...attrs}/>
+
+            {error &&
+                <span className='form__group-error'>{error}</span>
+            }
+        </div>
+    )
+}
 
