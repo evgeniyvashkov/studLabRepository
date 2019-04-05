@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './checkbox.css';
+import './checkbox.scss';
 
-export const Checkbox = (props) => {
-    const { id, value, children, error, ...attrs } = props;
+export const Checkbox = ({ id, children, ...attrs }) => {
+
     return (
         <div className='checkbox'>
             <input
                 id={id}
                 type='checkbox'
-                value={value || ''}
                 className='checkbox'
+                {...attrs}
             />
 
             <label htmlFor={id}>

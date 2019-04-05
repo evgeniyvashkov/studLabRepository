@@ -4,7 +4,7 @@ import { Header } from '../Header';
 import { Footer } from '../Footer';
 
 import '../../normalize.css';
-import './app.css';
+import './app.scss';
 
 import { PageContent } from '../Page-content';
 
@@ -14,7 +14,9 @@ export class App extends Component {
         return (
             <Fragment>
                 <Header />
-                <PageContent children={children} />
+                <PageContent>
+                    {children}
+                </PageContent>
                 <Footer />
             </Fragment>
         )

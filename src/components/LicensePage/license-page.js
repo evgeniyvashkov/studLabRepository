@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './license-page.css';
+import './license-page.scss';
 
 export const LicensePage = () => (
     <div className='license-page__content'>

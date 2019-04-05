@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import { RegistrationForm } from '../Registration-form';
 
 
-import './registration-page.css';
+import './registration-page.scss';
 
 export const RegistrationPage = () => {
 

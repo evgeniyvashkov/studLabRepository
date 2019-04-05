@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './slider.css';
+import './slider.scss';
 
 export const Slider = () => (
     <div className='slider-container'>

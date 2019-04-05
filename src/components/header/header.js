@@ -5,7 +5,7 @@ import { Button } from '../Button';
 import { Navigation } from '../Navigation';
 import { showModal } from '../pop-up/pop-up';
 
-import './header.css';
+import './header.scss';
 
 export const Header = () =>
     <header className='header'>

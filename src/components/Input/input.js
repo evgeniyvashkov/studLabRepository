@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './input.css';
+import './input.scss';
 
 export const Input = ({
     id, className, label, error, ...attrs

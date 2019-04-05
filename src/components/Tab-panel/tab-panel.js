@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { TabPanelList } from '../Tab-panel__list';
 
-import './tab-panel.css';
+import './tab-panel.scss';
 
 export class TabPanel extends Component {
     state = {

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { FormGroup } from '../Form-group';
 import { Button } from '../Button';
 
-import './form.css'
+import './form.scss'
 
 export class Form extends Component {
     state = {

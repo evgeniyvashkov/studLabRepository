@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '../Button';
-// import { showNotification } from '../pop-up/pop-up';
+import { showNotification } from '../pop-up/pop-up';
 
-import './pricing-section__plan.css';
+import './pricing-section__plan.scss';
 
 export const PricingSectionPlan = (props) => {
     const { title, activeUsers, price, handleClick } = props;
@@ -29,7 +29,7 @@ export const PricingSectionPlan = (props) => {
                 </div>
             </div>
             <Button className={'pricing-section__button button-blue'}
-                onClick={handleClick}
+                onClick={showNotification}
                 value='start'
             />
         </div>

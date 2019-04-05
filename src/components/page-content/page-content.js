@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './page-content.css';
+import './page-content.scss';
 
 export const PageContent = ({children}) => (
     <div className='page-content'>

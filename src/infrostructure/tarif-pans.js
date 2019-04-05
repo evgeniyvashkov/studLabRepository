@@ -19,7 +19,7 @@ const plans = [
     },
     {
         id: 4,
-        title: 'business',
+        title: 'business+',
         activeUsers: 'indefinitely',
         price: 199.99
     },

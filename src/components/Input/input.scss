@@ -1,0 +1,24 @@
+.form__group {
+    margin-bottom: 20px;
+
+    &-input {
+        width: 100%;
+        min-height: 46px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid #d1d5da;
+    }
+
+    &-label {
+        display: block;
+        margin-bottom: 10px;
+        color: #586069;
+        text-transform: capitalize;
+    }
+
+    &-error {
+        margin-top: 5px;
+        color: red;
+    }
+}

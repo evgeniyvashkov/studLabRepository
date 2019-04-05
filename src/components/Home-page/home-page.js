@@ -6,7 +6,7 @@ import { Slider } from '../Slider';
 
 import { plans } from '../../infrostructure/tarif-pans';
 
-import './home-page.css';
+import './home-page.scss';
 
 export class HomePage extends Component {
     handleClick = (e) => {

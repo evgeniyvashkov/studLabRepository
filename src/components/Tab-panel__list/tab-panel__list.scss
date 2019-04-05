@@ -10,16 +10,16 @@
     border-bottom: 1px solid #d1d5da;
     text-align: center;
     cursor: pointer;
-}
 
-.tab-panel__tab:not(.active) {
-    opacity: 0.6;
-}
+    &:not(.active) {
+        opacity: 0.6;
+    }
 
-.tab-panel__tab:not(:last-child) {
-    border-right: 1px solid #d1d5da
-}
+    &:not(:last-child) {
+        border-right: 1px solid #d1d5da
+    }
 
-.tab-panel__tab.active {
-    border-bottom-color: transparent;
+    &.active {
+        border-bottom-color: transparent;
+    }
 }

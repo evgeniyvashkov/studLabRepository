@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PricingSectionPlan } from '../Pricing-section__plan';
 
-import './pricing-section.css';
+import './pricing-section.scss';
 
 export const PricingSection = (props) => {
     const { plans, handleClick } = props;

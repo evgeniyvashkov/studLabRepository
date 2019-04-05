@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './tab-panel__list.css';
+import './tab-panel__list.scss';
 
 export const TabPanelList = ({ navLabel, onChangeActiveTab, className }) => {
     const classes = classNames(

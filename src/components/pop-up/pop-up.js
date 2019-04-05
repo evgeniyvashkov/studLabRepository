@@ -1,6 +1,6 @@
 // import './pop-up.css'
-import './modal-window.css'
-import './notification.css'
+import './modal-window.scss'
+import './notification.scss'
 
 var body = document.body;
 

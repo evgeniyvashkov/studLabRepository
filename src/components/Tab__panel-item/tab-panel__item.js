@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './tab-panel__item.css';
+import './tab-panel__item.scss';
 
 export const TabPanelItem = ({ children, label, activeTab }) => {
     const classList = 'tab__panel-item ' + (activeTab === label ? 'active' : '');

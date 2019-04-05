@@ -53,7 +53,7 @@ export class RegistrationForm extends PureComponent {
                     placeholder={'Re-enter password'}
                 />
 
-                <Button className='form__button button-green' value='Log-in' />
+                <Button className='form__button button-green' value='Log-in' disabled />
 
                 <Checkbox id={'registration-checkbox'}>
                     <Link to='/license'>{'Some text for link'}</Link>

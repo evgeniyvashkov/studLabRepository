@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import { Input } from '../Input';
 import { Button } from '../Button';
 
-import './login-form.css'
+import './login-form.scss'
 
 export class LoginForm extends PureComponent {
     constructor(props) {
