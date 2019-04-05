@@ -5,7 +5,6 @@ import { PricingSection } from '../Pricing-section';
 import { Slider } from '../Slider';
 
 import { plans } from '../../infrostructure/tarif-pans';
-import { loginData } from '../../infrostructure/login-form';
 
 import './home-page.css';
 
@@ -15,11 +14,9 @@ export class HomePage extends Component {
     }
 
     render() {
-        // const { plans, loginData } = this.props;
-
         return (
             <Fragment>
-                <PromoSection loginData={loginData} />
+                <PromoSection />
                 <Slider />
                 <PricingSection plans={plans} handleClick={this.handleClick} />
             </Fragment>

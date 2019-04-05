@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { App } from './components/App';
 import { HomePage } from './components/Home-page';
 import { RegistrationPage } from './components/Registration-page';
+import { LicensePage } from './components/LicensePage';
 
 ReactDOM.render((
     <BrowserRouter>
@@ -12,6 +13,7 @@ ReactDOM.render((
             <Switch>
                 <Route exact path='/' component={HomePage} />
                 <Route path='/registration' component={RegistrationPage} />
+                <Route path='/license' component={LicensePage} />
             </Switch>
         </App>
     </BrowserRouter>
