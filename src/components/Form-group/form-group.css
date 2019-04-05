@@ -1,0 +1,15 @@
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__group-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #586069;
+    text-transform: capitalize;
+}
+
+.form__group-error {
+    margin-top: 5px;
+    color: red;
+}
