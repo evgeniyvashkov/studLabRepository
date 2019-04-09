@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LoginForm } from '../LoginForm'
+import LoginFormContainer from '../../containers/login-form-container'
 import { TabPanel } from '../Tab-panel';
 import { TabPanelItem } from '../Tab__panel-item';
 
@@ -13,11 +13,11 @@ export const PromoSection = () => (
         </h1>
         <TabPanel>
             <TabPanelItem label={`I'm customer`}>
-                <LoginForm name='customer' />
+                <LoginFormContainer name='customer' />
             </TabPanelItem>
 
             <TabPanelItem label={`I'm employee`}>
-                <LoginForm name='employee' />
+                <LoginFormContainer name='employee' />
             </TabPanelItem>
         </TabPanel>
     </div>

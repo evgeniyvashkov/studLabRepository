@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store'
 
-import { App } from './components/App';
+import AppContainer from './containers/App-container';
 import { HomePage } from './components/Home-page';
 import { RegistrationPage } from './components/Registration-page';
 import { LicensePage } from './components/LicensePage';
@@ -12,13 +12,13 @@ import { LicensePage } from './components/LicensePage';
 ReactDOM.render((
     <Provider store={store}>
         <BrowserRouter>
-            <App>
+            <AppContainer>
                 <Switch>
                     <Route exact path='/' component={HomePage} />
                     <Route path='/registration' component={RegistrationPage} />
                     <Route path='/license' component={LicensePage} />
                 </Switch>
-            </App>
+            </AppContainer>
         </BrowserRouter>
     </Provider>
 ), document.getElementById('root'));

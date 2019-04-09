@@ -9,10 +9,10 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 /* eslint-enable */
 
-const configureStore = preLoadedState => (
+const configureStore = defaultState => (
     createStore(
         rootReducer,
-        preLoadedState,
+        defaultState,
         composeEnhancers()
     )
 );
