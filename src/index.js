@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { App } from './components/App';
-import { HomePage } from './components/Home-page';
-import { RegistrationPage } from './components/Registration-page';
+import { HomePage } from './components/HomePage';
+import { RegistrationPage } from './components/RegistrationPage';
 import { LicensePage } from './components/LicensePage';
 
 ReactDOM.render((
