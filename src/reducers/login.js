@@ -1,17 +1,17 @@
 import { LOG_IN, LOG_OUT } from '../actions/constants';
 
 const initialState = {
-    isLoged: false,
+    isLogged: false,
     activePlan: ''
 }
 
 const loginStatus = (state = initialState, action) => {
     switch (action.type) {
         case LOG_IN:
-            return { ...state, isLoged: true }
+            return { ...state, isLogged: true }
 
         case LOG_OUT:
-            return { ...state, isLoged: false }
+            return { ...state, isLogged: false }
 
         default:
             return state

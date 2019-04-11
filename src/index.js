@@ -4,9 +4,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store'
 
-import AppContainer from './containers/App-container';
-import { HomePage } from './components/Home-page';
-import { RegistrationPage } from './components/Registration-page';
+import AppContainer from './containers/AppContainer';
+import { HomePage } from './components/HomePage';
+import { RegistrationPage } from './components/RegistrationPage';
 import { LicensePage } from './components/LicensePage';
 
 ReactDOM.render((

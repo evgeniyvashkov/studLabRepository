@@ -1,3 +1,4 @@
+
 import React, { PureComponent } from 'react';
 
 import { Input } from '../Input';
@@ -40,15 +41,9 @@ export class LoginForm extends PureComponent {
                 <Input
                     id={name ? name + "-username" : ""}
                     label={`${name}'s username`}
-<<<<<<< HEAD:src/components/LoginForm/loginForm.js
                     name="username"
                     type="text"
                     placeholder="enter your username"
-=======
-                    name={'username'}
-                    type={'text'}
-                    placeholder={'enter your username'}
->>>>>>> connect to redux, create pseudo-login:src/components/LoginForm/login-form.js
                     onChange={this.onChangeInput}
                 />
 
@@ -60,11 +55,7 @@ export class LoginForm extends PureComponent {
                     onChange={this.onChangeInput}
                 />
 
-<<<<<<< HEAD:src/components/LoginForm/loginForm.js
-                <Button className="form__button button-green" value="Log-in" disabled={this.isFormValid()} />
-=======
-                <Button className={'form__button button-green'} value='Log-in' disabled={!this.isFormValid()} onClick={this.props.logIn} />
->>>>>>> connect to redux, create pseudo-login:src/components/LoginForm/login-form.js
+                <Button className="form__button button-green" value="Log-in" disabled={this.isFormValid()} onClick={this.props.logIn} />
 
                 {this.state.username &&
                     <Button className="form__button button-red" value="Restore password" />

@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 
 import { App } from '../components/App';
-import { isBtnPressed, logIn, logOut } from '../actions'
+import { logIn, logOut } from '../actions'
 
 const mapStateToProps = (state) => ({
-    isBtnPressed: state.btnStatus.isBtnPressed,
-    isLoged: state.loginStatus.isLoged
+    isLogged: state.loginStatus.isLogged
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    changeText: () => dispatch(isBtnPressed()),
     logIn: () => dispatch(logIn()),
     logOut: () => dispatch(logOut()),
 })

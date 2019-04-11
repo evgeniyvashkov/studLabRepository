@@ -4,7 +4,7 @@ import { LoginForm } from '../components/LoginForm';
 import { logIn } from '../actions'
 
 const mapStateToProps = (state) => ({
-    isLoged: state.loginStatus.isLoged
+    isLogged: state.loginStatus.isLogged
 })
 
 const mapDispatchToProps = (dispatch) => ({
