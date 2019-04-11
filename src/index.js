@@ -14,9 +14,9 @@ ReactDOM.render((
         <BrowserRouter>
             <AppContainer>
                 <Switch>
-                    <Route exact path='/' component={HomePage} />
-                    <Route path='/registration' component={RegistrationPage} />
-                    <Route path='/license' component={LicensePage} />
+                    <Route exact path="/" component={HomePage} />
+                    <Route path="/registration" component={RegistrationPage} />
+                    <Route path="/license" component={LicensePage} />
                 </Switch>
             </AppContainer>
         </BrowserRouter>
