@@ -6,7 +6,7 @@ import { Footer } from '../Footer';
 import '../../normalize.css';
 import './app.scss';
 
-import { PageContent } from '../Page-content';
+import { PageContent } from '../PageContent';
 
 export class App extends Component {
     render() {

@@ -46,19 +46,3 @@ export class Form extends Component {
         )
     }
 }
-
-// export const Form = () => (
-//     <form action='#'>
-//         <FormGroup
-//             loginData={login}
-//             onchangeInput={onchangeInput}
-//         />
-//         <FormGroup
-//             loginData={password}
-//             onchangeInput={onchangeInput}
-//         />
-
-//         <Button classList='form__submit' value='Log-in' />
-
-//     </form>
-// )

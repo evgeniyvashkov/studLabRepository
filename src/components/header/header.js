@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '../Button';
 import { Navigation } from '../Navigation';
-import { showModal } from '../pop-up/pop-up';
+import { showModal } from '../PopUp/popUp';
 
 import './header.scss';
 
