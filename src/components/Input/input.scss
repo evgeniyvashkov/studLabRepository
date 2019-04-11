@@ -8,6 +8,11 @@
         box-sizing: border-box;
         border-radius: 5px;
         border: 1px solid #d1d5da;
+
+        //styles for invalid input 
+        &.error {
+            border-color: red;
+        }
     }
 
     &-label {
@@ -18,6 +23,7 @@
     }
 
     &-error {
+        display: inline-block;
         margin-top: 5px;
         color: red;
     }
