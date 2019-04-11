@@ -1,74 +1,94 @@
-button {
-    //blue button  color
-    $buttonBlueColor: #2099fd;
-    $buttonBlueColorHover: #0086ff;
+$buttonDefaultColor: #eff3f6;
+$buttonDefaultHover: #e6ebf1;
 
-    //green button  color
-    $buttonGreenColor: #2ebc4f;
-    $buttonGreenColorHover: #28a745;
+//blue button  color
+$buttonBlueColor: #2099fd;
+$buttonBlueColorHover: #0086ff;
 
-    //green button  color
-    $buttonRedColor: #a51b21;
-    $buttonRedColorHover: #86181d;
+//green button  color
+$buttonGreenColor: #2ebc4f;
+$buttonGreenColorHover: #28a745;
 
-    &.button-blue {
-        width: 100%;
-        max-width: 290px;
-        height: 50px;
-        font-size: 15px;
-        line-height: 50px;
-        text-align: center;
-        border: 1px solid $buttonBlueColor;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: all 300ms ease;
-        background: #2099fd;
-        color: #fff;
+//green button  color
+$buttonRedColor: #a51b21;
+$buttonRedColorHover: #86181d;
 
-        &:hover {
-            background: $buttonBlueColorHover;
-            border-color: $buttonBlueColorHover;
-        }
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 12px;
+    border: 1px solid rgba(21, 28, 36, 0.35);
+    border-radius: 5px;
+    background: $buttonDefaultColor;
+    cursor: pointer;
+    color: #24292e;
+    font-size: 14px;
+    transition: background 200ms ease, border-color 200ms ease;
+
+    &:not(.disabled):hover {
+        background: $buttonDefaultHover;
+        border-color: rgba(21, 28, 36, 0.35);
     }
+}
 
-    &.button-green {
-        padding: 10px 20px;
-        font-size: 15px;
-        text-align: center;
-        border: 1px solid $buttonGreenColor;
-        border-radius: 5px;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: all 300ms ease;
-        background: $buttonGreenColor;
-        color: #fff;
+.button-blue {
+    width: 100%;
+    max-width: 290px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid $buttonBlueColor;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    background: #2099fd;
+    color: #fff;
 
-        &::hover {
-            background: $buttonGreenColorHover;
-            border-color: $buttonGreenColorHover;
-        }
+    &:not(.disabled):hover {
+        background: $buttonBlueColorHover;
+        border-color: $buttonBlueColorHover;
     }
+}
 
-    &.button-red {
-        padding: 10px 20px;
-        font-size: 15px;
-        text-align: center;
-        border: 1px solid $buttonRedColor;
-        border-radius: 5px;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: all 300ms ease;
-        background: $buttonRedColor;
-        color: #fff;
+.button-green {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid $buttonGreenColor;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    background: $buttonGreenColor;
+    color: #fff;
 
-        &:hover {
-            background: $buttonRedColorHover;
-            border-color: $buttonRedColorHover;
-        }
+    &:not(.disabled):hover {
+        background: $buttonGreenColorHover;
+        border-color: $buttonGreenColorHover;
     }
+}
 
-    &:disabled {
-        cursor: default;
-        opacity: 0.4;
+.button-red {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid $buttonRedColor;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    background: $buttonRedColor;
+    color: #fff;
+
+    &:not(.disabled):hover {
+        background: $buttonRedColorHover;
+        border-color: $buttonRedColorHover;
     }
+}
+
+.disabled {
+    cursor: default;
+    opacity: 0.4;
+    outline: none;
 }
