@@ -11,7 +11,7 @@ export class Form extends Component {
         const { value } = e.target;
 
         this.setState(() => ({
-            usernameIsEmpty: (value.length > 0) ? false : true,
+            usernameIsEmpty: value.length === 0 
         }))
     }
 
