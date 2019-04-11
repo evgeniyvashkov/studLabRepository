@@ -50,11 +50,11 @@ export class TabPanel extends Component {
         const { children } = this.props;
 
         return (
-            <div className='tab-panel'>
-                <div className='tab-panel__list'>
+            <div className="tab-panel">
+                <div className="tab-panel__list">
                     {this.renderTabs()}
                 </div>
-                <div className='tab-panel__container'>
+                <div className="tab-panel__container">
                     {React.Children.map(children, child => React.cloneElement(child, { activeTab }))}
                 </div>
             </div>

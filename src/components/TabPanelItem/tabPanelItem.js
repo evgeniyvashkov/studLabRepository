@@ -1,12 +1,16 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './tabPanelItem.scss';
 
 export const TabPanelItem = ({ children, label, activeTab }) => {
-    const classList = 'tab__panel-item ' + (activeTab === label ? 'active' : '');
+    const classes = classNames(
+        'tab__panel-item',
+        { 'active': activeTab === label }
+    )
 
     return (
-        <div className={classList}>
+        <div className={classes}>
             {children}
         </div>
     )

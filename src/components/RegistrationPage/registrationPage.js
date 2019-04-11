@@ -10,7 +10,7 @@ export const RegistrationPage = () => {
 
     return (
         <Fragment>
-            <h2 className='title'>RegistrationPage</h2>
+            <h2 className="title">RegistrationPage</h2>
             <RegistrationForm />
         </Fragment>
     )

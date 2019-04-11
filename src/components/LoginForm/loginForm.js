@@ -34,31 +34,30 @@ export class LoginForm extends PureComponent {
 
     render() {
         const { name } = this.props;
-        console.log('rendered')
+
         return (
-            <form className='form login-form' action='#' onSubmit={this.handleOnSubmit}>
+            <form className="form login-form" action="#" onSubmit={this.handleOnSubmit}>
                 <Input
-                    id={name ? name + '-username' : ''}
+                    id={name ? name + "-username" : ""}
                     label={`${name}'s username`}
-                    name={'username'}
-                    type={'text'}
-                    placeholder={'enter your username'}
-                    // error={'invalid'}
+                    name="username"
+                    type="text"
+                    placeholder="enter your username"
                     onChange={this.onChangeInput}
                 />
 
                 <Input
-                    label={'password'}
-                    name={'password'}
-                    type={'password'}
-                    placeholder={'enter your password'}
+                    label="password"
+                    name="password"
+                    type="password"
+                    placeholder="enter your password"
                     onChange={this.onChangeInput}
                 />
 
-                <Button className={'form__button button-green'} value='Log-in' disabled={this.isFormValid()} />
+                <Button className="form__button button-green" value="Log-in" disabled={this.isFormValid()} />
 
                 {this.state.username &&
-                    <Button className={'form__button button-red'} value='Restore password' />
+                    <Button className="form__button button-red" value="Restore password" />
                 }
             </form>
         )

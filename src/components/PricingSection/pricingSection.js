@@ -14,9 +14,9 @@ export const PricingSection = (props) => {
     })
 
     return (
-        <section className='pricing-section'>
-            <h2 className='pricing-section__title'>Pick the plan that's best for your business.</h2>
-            <div className='pricing-section__content'>
+        <section className="pricing-section">
+            <h2 className="pricing-section__title">Pick the plan that"s best for your business.</h2>
+            <div className="pricing-section__content">
                 {planList}
             </div>
         </section>
