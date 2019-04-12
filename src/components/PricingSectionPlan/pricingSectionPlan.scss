@@ -1,0 +1,72 @@
+.pricing-section__plan {
+    width: 290px;
+    min-height: 220px;
+    padding: 30px;
+    margin: 0 10px 20px;
+    box-sizing: border-box;
+    border: solid 1px #e7f0f3;
+    position: relative;
+    transition: box-shadow 100ms ease;
+
+    &:hover {
+        z-index: 1;
+        box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    }
+
+    &-title {
+        font-size: 23px;
+        margin-bottom: 8px;
+    }
+
+    &-users {
+        margin-bottom: 40px;
+        font-size: 12px;
+    }
+
+    &-description {
+        min-height: 50px;
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
+
+    &-price {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    &-currency,
+    &-cost {
+        font-size: 30px;
+    }
+
+    &-cost {
+        &:after {
+            content: '/';
+            margin-left: 3px;
+        }
+    }
+
+    &-currency {
+        margin-right: 3px;
+    }
+
+    &-per-month {
+        margin: 4px 0 0 5px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .pricing-section__content {
+        max-width: 640px;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 479px) {
+    .pricing-section__plan {
+        width: 100%;
+    }
+}

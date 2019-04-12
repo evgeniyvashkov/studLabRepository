@@ -1,0 +1,16 @@
+.navigation {
+    margin: 0 20px 0 auto;
+     
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    &__item-link {
+        color: #fff;
+    }
+}

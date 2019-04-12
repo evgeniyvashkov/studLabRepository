@@ -1,3 +1,3 @@
-import { Checkbox } from './checbox';
+import { Checkbox } from './checkbox';
 
 export {Checkbox};
