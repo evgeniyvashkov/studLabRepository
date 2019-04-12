@@ -8,6 +8,7 @@ import AppContainer from './containers/AppContainer';
 import { HomePage } from './components/HomePage';
 import { RegistrationPage } from './components/RegistrationPage';
 import { LicensePage } from './components/LicensePage';
+import DashboardContainer from './containers/dashboardContainer'
 
 ReactDOM.render((
     <Provider store={store}>
@@ -17,6 +18,7 @@ ReactDOM.render((
                     <Route exact path="/" component={HomePage} />
                     <Route path="/registration" component={RegistrationPage} />
                     <Route path="/license" component={LicensePage} />
+                    <Route path="/dashboard" component={DashboardContainer} />
                 </Switch>
             </AppContainer>
         </BrowserRouter>

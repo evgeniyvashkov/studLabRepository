@@ -4,7 +4,7 @@ import { PromoSection } from '../PromoSection';
 import { PricingSection } from '../PricingSection';
 import { Slider } from '../Slider';
 
-import { plans } from '../../infrostructure/tarifPlans';
+import plans from '../../infrostructure/tarifPlans.json';
 
 import './homePage.scss';
 

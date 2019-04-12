@@ -1,0 +1,46 @@
+.tasks-list {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5da;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    &__title {
+        margin-bottom: 10px;
+        text-decoration: underline;
+        font-size: 20px;
+    }
+
+    .task-name {
+        flex-grow: 1;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .task-status,
+    .task-due-date {
+        width: auto;
+        padding: 10px 20px;
+    }
+
+    &__caption,
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        box-sizing: border-box;
+        text-align: left;
+        color: #000;
+        border-bottom: 1px solid #d1d5da;
+    }
+
+    &__item {
+        &:hover {
+            background: #eff3f6;
+        }
+    }
+}

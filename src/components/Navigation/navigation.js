@@ -15,6 +15,10 @@ export const Navigation = () => (
             <li className="navigation__item">
                 <Link to="/license" className="navigation__item-link">License-page</Link>
             </li>
+
+            <li className="navigation__item">
+                <Link to="/dashboard" className="navigation__item-link">Dashboard</Link>
+            </li>
         </ul>
     </nav>
 )

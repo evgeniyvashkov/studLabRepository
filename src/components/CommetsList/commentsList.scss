@@ -1,0 +1,43 @@
+.comments-list {
+    width: 49%;
+    margin-bottom: 40px;
+    padding: 15px 0;
+    box-sizing: border-box;
+    border: 1px solid #d1d5da;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    &__title {
+        margin-bottom: 10px;
+        text-decoration: underline;
+        font-size: 20px;
+    }
+
+    &__item {
+        width: 100%;
+        padding: 10px 30px;
+        box-sizing: border-box;
+        text-align: left;
+        transition: background 300ms ease;
+
+        &:hover {
+            background: #eff3f6;
+        }
+
+        &-author {
+            display: inline-block;
+            margin-right: 5px;
+            color: #0366d6;
+        }
+
+        &-task {
+            color: #0366d6;
+        }
+
+        &-date {
+            margin-top: 5px;
+            color: #586069;
+        }
+    }
+}
