@@ -12,7 +12,7 @@ export const UserMenu = (props) => {
             <div className="user-menu__icon">
                 <img
                     className="user-menu__avatar"
-                    src={avatar ? avatar : defaultUserIcon}
+                    src={avatar || defaultUserIcon}
                     alt={`@${name}`} />
             </div>
 
