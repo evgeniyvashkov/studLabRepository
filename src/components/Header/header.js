@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Navigation } from '../Navigation/';
-import {UserMenu} from '../UserMenu/'
+import { UserMenu } from '../UserMenu/'
 
 import './header.scss';
 
@@ -15,9 +15,9 @@ export const Header = ({ isLogged, onClick, logOut }) => {
                 {isLogged ?
                     <Fragment>
                         <Navigation />
-                        <UserMenu name={'Eugene Vashkov'} logOut={logOut} />
+                        <UserMenu name="Eugene Vashkov" logOut={logOut} />
                     </Fragment> :
-                    <Link to='/registration' className='header__button sign-in'>Sign-in</Link>
+                    <Link to="/registration" className="header__button sign-in">Sign-in</Link>
                 }
             </div>
         </header>
