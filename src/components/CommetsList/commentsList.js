@@ -7,13 +7,15 @@ import './commentsList.scss';
 
 export const CommentsList = ({ title, comments }) => {
 
-    const commentsList = comments.map(comment => (
-        <CommentListItem
-            key={comment.commentId}
-            author={comment.commentAuthor}
-            task={comment.commentToTask}
-            date={comment.commentDate} />
-    ));
+    const commentsList = comments.map(({
+        commentId, commentAuthor, commentToTask, commentDate
+    }) => (
+            <CommentListItem
+                key={commentId}
+                author={commentAuthor}
+                task={commentToTask}
+                date={commentDate} />
+        ));
 
     return (
         <div className="comments-list">

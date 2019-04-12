@@ -6,14 +6,16 @@ import { Button } from '../Button';
 import './tasksList.scss';
 
 export const TasksList = ({ tasks }) => {
-    const tasksList = tasks.map(task => (
-        <TaskItem
-            id={task.taskId}
-            key={task.taskId}
-            name={task.text}
-            status={task.status}
-            dueDate={task.dueDate} />
-    ));
+    const tasksList = tasks.map(({
+        taskId, text, status, dueDate
+    }) => (
+            <TaskItem
+                id={taskId}
+                key={taskId}
+                name={text}
+                status={status}
+                dueDate={dueDate} />
+        ));
 
     return (
         <div className="tasks-list">
