@@ -1,3 +1,4 @@
+
 import React, { PureComponent } from 'react';
 
 import { Input } from '../Input';
@@ -54,7 +55,7 @@ export class LoginForm extends PureComponent {
                     onChange={this.onChangeInput}
                 />
 
-                <Button className="form__button button-green" value="Log-in" disabled={this.isFormValid()} />
+                <Button className="form__button button-green" value="Log-in" disabled={this.isFormValid()} onClick={this.props.logIn} />
 
                 {this.state.username &&
                     <Button className="form__button button-red" value="Restore password" />

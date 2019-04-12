@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 import { Header } from '../Header';
 import { Footer } from '../Footer';
@@ -8,17 +8,15 @@ import './app.scss';
 
 import { PageContent } from '../PageContent';
 
-export class App extends Component {
-    render() {
-        const { children } = this.props;
-        return (
-            <Fragment>
-                <Header />
-                <PageContent>
-                    {children}
-                </PageContent>
-                <Footer />
-            </Fragment>
-        )
-    }
+export const App = (props) => {
+    const { children, isLogged, logOut } = props;
+    return (
+        <Fragment>
+            <Header isLogged={isLogged} logOut={logOut} />
+            <PageContent>
+                {children}
+            </PageContent>
+            <Footer />
+        </Fragment>
+    )
 }

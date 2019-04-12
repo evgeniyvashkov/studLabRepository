@@ -32,8 +32,7 @@
         cursor: pointer;
         transition: all 200ms ease;
 
-        &:hover,
-        &:focus {
+        &:hover {
             outline: none;
             background: #fff;
             color: #000;
