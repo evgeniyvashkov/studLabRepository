@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import loginStatus from './login';
+import { tasks } from './tasks'
 
 
 const rootReducer = combineReducers({
-    loginStatus
+    loginStatus,
+    tasks
 });
 
 export default rootReducer;

@@ -6,6 +6,7 @@ import { Button } from '../Button';
 import './tasksList.scss';
 
 export const TasksList = ({ tasks }) => {
+    console.log(tasks)
     const tasksList = tasks.map(({
         taskId, text, status, dueDate
     }) => (
