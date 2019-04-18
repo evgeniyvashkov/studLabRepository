@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { DashboardPage } from '../components/DashboardPage';
-// import newComments from '../infrostructure/newComments.json';
-// import myLastComments from '../infrostructure/myLastComments.json';
-// import myUnresolvedTasks from '../infrostructure/tasksList.json';
-// const myUnresolvedTasks = fetch('http:/localhost:3001/tasks');
-import { tasksFetchData } from '../actions'
 
-const mapStateToProps = (state) => ({
-    tasks : state.tasks
-    // newComments,
-    // myLastComments,
-    // myUnresolvedTasks
+import { tasksFetchData } from '../actions/fetchTasks'
+import { newCommentsFetchData } from '../actions/fetchNewComments'
+import { myCommentsFetchData } from '../actions/fetchMyComments'
+
+const mapStateToProps = ({ tasks, newComments, myComments }) => ({
+    tasksList: tasks.tasksList,
+    newCommentsList: newComments.newCommentsList,
+    myCommentsList: myComments.myCommentsList
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchData: (url) => { dispatch(tasksFetchData(url)) }
+    tasksFetchData: (url) => { dispatch(tasksFetchData(url)) },
+    newCommentsFetchData: (url) => { dispatch(newCommentsFetchData(url)) },
+    myCommentsFetchData: (url) => { dispatch(myCommentsFetchData(url)) },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

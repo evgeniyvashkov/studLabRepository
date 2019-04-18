@@ -5,9 +5,8 @@ import { Button } from '../Button';
 
 import './tasksList.scss';
 
-export const TasksList = ({ tasks }) => {
-    console.log(tasks)
-    const tasksList = tasks.map(({
+export const TasksList = ({ tasksList }) => {
+    const renderTasksList = tasksList.map(({
         taskId, text, status, dueDate
     }) => (
             <TaskItem
@@ -29,7 +28,7 @@ export const TasksList = ({ tasks }) => {
                     <h4 className="task-due-date">Due Date</h4>
                 </div>
 
-                {tasksList}
+                {renderTasksList}
 
             </div>
             <Button value="Show more" />
