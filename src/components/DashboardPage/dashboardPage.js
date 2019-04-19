@@ -8,9 +8,12 @@ import './dashboardPage.scss'
 
 export class DashboardPage extends PureComponent {
     componentDidMount() {
-        this.props.tasksFetchData('http://localhost:3001/tasks');
-        this.props.newCommentsFetchData('http://localhost:3001/newComments');
-        this.props.myCommentsFetchData('http://localhost:3001/myComments');
+        const { tasksFetchData, newCommentsFetchData, myCommentsFetchData } = this.props;
+
+        tasksFetchData('http://localhost:3001/tasks');
+        newCommentsFetchData('http://localhost:3001/newComments');
+        myCommentsFetchData('http://localhost:3001/myComments');
+
     }
 
     render() {
@@ -22,8 +25,8 @@ export class DashboardPage extends PureComponent {
 
                 <div className="dashboards">
                     <TasksList tasksList={tasksList} />
-                    <CommentsList comments={newCommentsList} title="New comments from tranlators" />
-                    <CommentsList comments={myCommentsList} title="My last comments" />
+                    <CommentsList commentsList={newCommentsList} title="New comments from tranlators" />
+                    <CommentsList commentsList={myCommentsList} title="My last comments" />
                 </div>
             </Fragment>
         )

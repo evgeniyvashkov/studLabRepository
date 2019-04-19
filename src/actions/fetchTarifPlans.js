@@ -18,7 +18,7 @@ export const fetchtarifPlansSuccess = (tarifPlansList) => ({
 export const fetchtarifPlansFaild = () => ({
     type: FETCH_TARIFS_FAILD,
     loading: false,
-    faild: false
+    faild: true
 })
 
 export const fetchTarifPlans = (url) => {
@@ -26,6 +26,7 @@ export const fetchTarifPlans = (url) => {
         dispatch(fetchtarifPlans());
 
         fetch(url)
+
             .then(response => {
                 if (!response.ok) {
                     dispatch(fetchtarifPlansFaild())
@@ -36,6 +37,8 @@ export const fetchTarifPlans = (url) => {
                 return response.json()
             })
             .then(tarifPlans => dispatch(fetchtarifPlansSuccess(tarifPlans)))
+
+            .catch(() => dispatch(fetchtarifPlansFaild()))
 
     }
 }

@@ -18,13 +18,13 @@ export const fetchMyCommentsSuccess = (myCommentsList) => ({
 export const fetchMyCommentsFaild = () => ({
     type: FETCH_MY_COMMENTS_FAILD,
     loading: false,
-    faild: false
+    faild: true
 })
 
 export const myCommentsFetchData = (url) => {
     return (dispatch) => {
         dispatch(fetchMyComments());
-
+        
         fetch(url)
             .then(response => {
                 if (!response.ok) {
@@ -37,5 +37,6 @@ export const myCommentsFetchData = (url) => {
             })
             .then(myComments => dispatch(fetchMyCommentsSuccess(myComments)))
 
+            .catch(() => dispatch(fetchMyCommentsFaild()))
     }
 }

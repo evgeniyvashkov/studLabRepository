@@ -5,9 +5,9 @@ import { Button } from '../Button'
 
 import './commentsList.scss';
 
-export const CommentsList = ({ title, comments }) => {
+export const CommentsList = ({ title, commentsList }) => {
 
-    const commentsList = comments.map(({
+    const renderCommentsList = commentsList.map(({
         commentId, commentAuthor, commentToTask, commentDate
     }) => (
             <CommentListItem
@@ -21,7 +21,7 @@ export const CommentsList = ({ title, comments }) => {
         <div className="comments-list">
             <h3 className="comments-list__title">{title}</h3>
 
-            {commentsList}
+            {renderCommentsList}
 
             <Button value="Show more" />
         </div>

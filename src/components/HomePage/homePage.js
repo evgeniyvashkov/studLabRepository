@@ -12,7 +12,8 @@ export class HomePage extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchTarifPlans('http://localhost:3001/tariffs')
+        const { fetchTarifPlans } = this.props;
+        fetchTarifPlans('http://localhost:3001/tariffs')
     }
 
     render() {

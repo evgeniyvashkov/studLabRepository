@@ -18,7 +18,7 @@ export const fetchNewCommentsSuccess = (newCommentsList) => ({
 export const fetchNewCommentsFaild = () => ({
     type: FETCH_NEW_COMMENTS_FAILD,
     loading: false,
-    faild: false
+    faild: true
 })
 
 export const newCommentsFetchData = (url) => {
@@ -36,6 +36,8 @@ export const newCommentsFetchData = (url) => {
                 return response.json()
             })
             .then(newComments => dispatch(fetchNewCommentsSuccess(newComments)))
+
+            .catch(() => dispatch(fetchNewCommentsFaild()))
 
     }
 }
