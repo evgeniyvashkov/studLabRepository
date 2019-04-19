@@ -1,7 +1,7 @@
 import {
     FETCH_NEW_COMMENTS,
     FETCH_NEW_COMMENTS_SUCCESS,
-    FETCH_NEW_COMMENTS_FAILD
+    FETCH_NEW_COMMENTS_FAILED
 } from '../actions/constants'
 
 export const fetchNewComments = () => ({
@@ -15,10 +15,10 @@ export const fetchNewCommentsSuccess = (newCommentsList) => ({
     newCommentsList
 })
 
-export const fetchNewCommentsFaild = () => ({
-    type: FETCH_NEW_COMMENTS_FAILD,
+export const fetchNewCommentsFailed = () => ({
+    type: FETCH_NEW_COMMENTS_FAILED,
     loading: false,
-    faild: true
+    failed: true
 })
 
 export const newCommentsFetchData = (url) => {
@@ -28,7 +28,7 @@ export const newCommentsFetchData = (url) => {
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    dispatch(fetchNewCommentsFaild())
+                    dispatch(fetchNewCommentsFailed())
                 }
                 return response;
             })
@@ -37,7 +37,7 @@ export const newCommentsFetchData = (url) => {
             })
             .then(newComments => dispatch(fetchNewCommentsSuccess(newComments)))
 
-            .catch(() => dispatch(fetchNewCommentsFaild()))
+            .catch(() => dispatch(fetchNewCommentsFailed()))
 
     }
 }

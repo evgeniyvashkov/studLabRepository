@@ -1,7 +1,7 @@
 import {
     FETCH_MY_COMMENTS,
     FETCH_MY_COMMENTS_SUCCESS,
-    FETCH_MY_COMMENTS_FAILD
+    FETCH_MY_COMMENTS_FAILED
 } from '../actions/constants';
 
 const initialState = {
@@ -25,11 +25,11 @@ export const myComments = (state = initialState, action) => {
                 loading: action.loading,
                 myCommentsList: action.myCommentsList
             };
-        case FETCH_MY_COMMENTS_FAILD:
+        case FETCH_MY_COMMENTS_FAILED:
             return {
                 ...state,
                 loading: action.loading,
-                faild: action.faild
+                failed: action.failed
             };
 
 

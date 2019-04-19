@@ -1,7 +1,7 @@
 import {
     FETCH_TASKS,
     FETCH_TASKS_SUCCESS,
-    FETCH_TASKS_FAILD
+    FETCH_TASKS_FAILED
 } from '../actions/constants'
 
 export const fetchTasks = () => ({
@@ -15,8 +15,8 @@ export const fetchTasksSuccess = (tasksList) => ({
     tasksList
 })
 
-export const fetchTasksFaild = () => ({
-    type: FETCH_TASKS_FAILD,
+export const fetchTasksFailed = () => ({
+    type: FETCH_TASKS_FAILED,
     loading: false,
     faild: false
 })
@@ -28,7 +28,7 @@ export const tasksFetchData = (url) => {
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    dispatch(fetchTasksFaild())
+                    dispatch(fetchTasksFailed())
                 }
                 return response;
             })
@@ -36,6 +36,8 @@ export const tasksFetchData = (url) => {
                 return response.json()
             })
             .then(tasks => dispatch(fetchTasksSuccess(tasks)))
+
+            .catch(() => dispatch(fetchTasksFailed()))
 
     }
 }

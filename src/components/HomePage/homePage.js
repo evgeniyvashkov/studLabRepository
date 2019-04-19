@@ -12,17 +12,18 @@ export class HomePage extends Component {
     }
 
     componentDidMount() {
-        const { fetchTarifPlans } = this.props;
-        fetchTarifPlans('http://localhost:3001/tariffs')
+        const { fetchTariffPlans } = this.props;
+        fetchTariffPlans('http://localhost:3001/tariffs')
     }
 
     render() {
-        const { tarifPlansList } = this.props;
+        const { tariffPlansList } = this.props;
+
         return (
             <Fragment>
                 <PromoSection />
                 <Slider />
-                <PricingSection plans={tarifPlansList} handleClick={this.handleClick} />
+                <PricingSection plans={tariffPlansList} handleClick={this.handleClick} />
             </Fragment>
         )
     }

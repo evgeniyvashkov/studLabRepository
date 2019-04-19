@@ -1,13 +1,13 @@
 import {
     FETCH_TASKS,
     FETCH_TASKS_SUCCESS,
-    FETCH_TASKS_FAILD
+    FETCH_TASKS_FAILED
 } from '../actions/constants';
 
 const initialState = {
     loading: false,
     tasksList: [],
-    faild: false
+    failed: false
 }
 
 export const tasks = (state = initialState, action) => {
@@ -25,11 +25,11 @@ export const tasks = (state = initialState, action) => {
                 loading: action.loading,
                 tasksList: action.tasksList
             };
-        case FETCH_TASKS_FAILD:
+        case FETCH_TASKS_FAILED:
             return {
                 ...state,
                 loading: action.loading,
-                faild: action.faild
+                failed: action.failed
             };
 
 

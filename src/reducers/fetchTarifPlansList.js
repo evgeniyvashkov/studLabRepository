@@ -1,35 +1,35 @@
 import {
-    FETCH_TARIFS,
-    FETCH_TARIFS_SUCCESS,
-    FETCH_TARIFS_FAILD
+    FETCH_TARIFFS,
+    FETCH_TARIFFS_SUCCESS,
+    FETCH_TARIFFS_FAILED
 } from '../actions/constants';
 
 const initialState = {
     loading: false,
-    tarifPlansList: [],
-    faild: false
+    tariffPlansList: [],
+    failed: false
 }
 
-export const tarifPlans = (state = initialState, action) => {
+export const tariffPlans = (state = initialState, action) => {
     switch (action.type) {
 
-        case FETCH_TARIFS:
+        case FETCH_TARIFFS:
             return {
                 ...state,
                 loading: action.loading
             }
 
-        case FETCH_TARIFS_SUCCESS:
+        case FETCH_TARIFFS_SUCCESS:
             return {
                 ...state,
                 loading: action.loading,
-                tarifPlansList: action.tarifPlansList
+                tariffPlansList: action.tariffPlansList
             };
-        case FETCH_TARIFS_FAILD:
+        case FETCH_TARIFFS_FAILED:
             return {
                 ...state,
                 loading: action.loading,
-                faild: action.faild
+                failed: action.failed
             };
 
 

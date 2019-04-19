@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import loginStatus from './login';
-import { tarifPlans } from './fetchTarifPlansList';
+import { tariffPlans } from './fetchTarifPlansList';
 import { tasks } from './fetchTasksList';
 import { newComments } from './fetchNewCommentsList';
 import { myComments } from './fetchMyCommentsList';
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
     tasks,
     newComments,
     myComments,
-    tarifPlans
+    tariffPlans
 });
 
 export default rootReducer;
