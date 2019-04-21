@@ -4,18 +4,18 @@ import {
     FETCH_NEW_COMMENTS_FAILED
 } from '../actions/constants'
 
-export const fetchNewComments = () => ({
+const fetchNewComments = () => ({
     type: FETCH_NEW_COMMENTS,
     loading: true
 })
 
-export const fetchNewCommentsSuccess = (newCommentsList) => ({
+const fetchNewCommentsSuccess = (newCommentsList) => ({
     type: FETCH_NEW_COMMENTS_SUCCESS,
     loading: false,
     newCommentsList
 })
 
-export const fetchNewCommentsFailed = () => ({
+const fetchNewCommentsFailed = () => ({
     type: FETCH_NEW_COMMENTS_FAILED,
     loading: false,
     failed: true
@@ -25,7 +25,7 @@ export const newCommentsFetchData = (url) => {
     return (dispatch) => {
         dispatch(fetchNewComments());
 
-        fetch(url)
+        return fetch(url)
             .then(response => {
                 if (!response.ok) {
                     dispatch(fetchNewCommentsFailed())

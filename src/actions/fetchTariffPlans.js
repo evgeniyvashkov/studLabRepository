@@ -4,18 +4,18 @@ import {
     FETCH_TARIFFS_FAILED
 } from '../actions/constants'
 
-export const fetchTariff = () => ({
+const fetchTariff = () => ({
     type: FETCH_TARIFFS,
     loading: true
 })
 
-export const fetchTariffSuccess = (tariffPlansList) => ({
+const fetchTariffSuccess = (tariffPlansList) => ({
     type: FETCH_TARIFFS_SUCCESS,
     loading: false,
     tariffPlansList
 })
 
-export const fetchTariffFailed = () => ({
+const fetchTariffFailed = () => ({
     type: FETCH_TARIFFS_FAILED,
     loading: false,
     failed: true
@@ -25,8 +25,7 @@ export const fetchTariffPlans = (url) => {
     return (dispatch) => {
         dispatch(fetchTariff());
 
-        fetch(url)
-
+        return fetch(url)
             .then(response => {
                 if (!response.ok) {
                     dispatch(fetchTariffFailed())
