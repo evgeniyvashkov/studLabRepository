@@ -21,7 +21,7 @@ export class DashboardPage extends PureComponent {
 
         return (
             <Fragment>
-                <h1 className="page-contnet__title">My dashboard</h1>
+                <h1 className="page-content__title">My dashboard</h1>
 
                 <div className="dashboards">
                     <TasksList tasksList={tasksList} />

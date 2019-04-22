@@ -1,7 +1,7 @@
 import { LOG_IN, LOG_OUT } from '../actions/constants';
 
 const initialState = {
-    isLogged: false,
+    isLogged: true,
     userInfo: {
         "userName": "Eugene Vashov",
         "avatarLink": ""
