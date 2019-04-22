@@ -4,16 +4,16 @@ import defaultUserIcon from './userIconDefault.png';
 import './userMenu.scss';
 
 export const UserMenu = (props) => {
-    const { name, avatar, logOut } = props;
+    const { userInfo: { userName, avatarLink }, logOut } = props;
 
     return (
         <div className="user-menu">
-            <div className="user-menu__name">{name}</div>
+            <div className="user-menu__name">{userName}</div>
             <div className="user-menu__icon">
                 <img
                     className="user-menu__avatar"
-                    src={avatar || defaultUserIcon}
-                    alt={`@${name}`} />
+                    src={avatarLink || defaultUserIcon}
+                    alt={`@${userName}`} />
             </div>
 
             <div className="user-menu__dropdown-menu">

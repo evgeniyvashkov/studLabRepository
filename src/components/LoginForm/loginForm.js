@@ -22,8 +22,6 @@ export class LoginForm extends PureComponent {
         this.setState({
             [name]: value,
         })
-
-        console.log(this.state[name])
     }
 
     handleOnSubmit = (e) => {

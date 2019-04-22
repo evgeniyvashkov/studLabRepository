@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store'
 
 import AppContainer from './containers/AppContainer';
-import { HomePage } from './components/HomePage';
+import homePageContainer from './containers/homePageContainer';
 import { RegistrationPage } from './components/RegistrationPage';
 import { LicensePage } from './components/LicensePage';
 import DashboardContainer from './containers/dashboardContainer'
@@ -15,7 +15,7 @@ ReactDOM.render((
         <BrowserRouter>
             <AppContainer>
                 <Switch>
-                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/" component={homePageContainer} />
                     <Route path="/registration" component={RegistrationPage} />
                     <Route path="/license" component={LicensePage} />
                     <Route path="/dashboard" component={DashboardContainer} />

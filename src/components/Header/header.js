@@ -6,7 +6,7 @@ import { UserMenu } from '../UserMenu/'
 
 import './header.scss';
 
-export const Header = ({ isLogged, onClick, logOut }) => {
+export const Header = ({ isLogged, logOut, userInfo }) => {
     return (
         <header className="header">
             <div className="header__wrapper">
@@ -15,7 +15,7 @@ export const Header = ({ isLogged, onClick, logOut }) => {
                 {isLogged ?
                     <Fragment>
                         <Navigation />
-                        <UserMenu name="Eugene Vashkov" logOut={logOut} />
+                        <UserMenu userInfo={userInfo} logOut={logOut} />
                     </Fragment> :
                     <Link to="/registration" className="header__button sign-in">Sign-in</Link>
                 }

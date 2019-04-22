@@ -1,11 +1,11 @@
 import {
     LOG_IN,
-    LOG_OUT
+    LOG_OUT,
 } from './constants';
 
 
 export const logIn = () => ({
-    type: LOG_IN,
+    type: LOG_IN, 
 })
 
 export const logOut = () => ({
