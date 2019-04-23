@@ -1,7 +1,10 @@
 .page-content {
     width: 100%;
-    max-width: 1220px;
+    max-width: 1240px;
     margin: 80px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    
 
     &__title {
         margin: 20px 0 30px;

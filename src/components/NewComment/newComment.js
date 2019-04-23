@@ -14,7 +14,7 @@ export class NewComment extends PureComponent {
                     <div className="new-comment__wrapper">
                         <textarea className="new-comment__input-field"></textarea>
                     </div>
-                    <Button type="submit" />
+                    <Button type="submit" className="button-green" />
                 </form>
             </div>
         )
