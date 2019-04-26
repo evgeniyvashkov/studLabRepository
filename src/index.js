@@ -10,7 +10,7 @@ import DashboardContainer from './containers/dashboardContainer'
 
 import { RegistrationPage } from './components/RegistrationPage';
 import { LicensePage } from './components/LicensePage';
-import { TaskDetailsPage } from './components/TaskDetailsPage';
+import { TaskDetailsPageContainer } from './containers/taskDetailsPageContainer';
 
 
 ReactDOM.render((
@@ -22,7 +22,7 @@ ReactDOM.render((
                     <Route path="/registration" component={RegistrationPage} />
                     <Route path="/license" component={LicensePage} />
                     <Route path="/dashboard" component={DashboardContainer} />
-                    <Route path="/task-details" component={TaskDetailsPage} />
+                    <Route path="/task-details" component={TaskDetailsPageContainer} />
                 </Switch>
             </AppContainer>
         </BrowserRouter>

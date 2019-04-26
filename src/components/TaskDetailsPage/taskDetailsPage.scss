@@ -19,6 +19,9 @@
 
 .task-details {
     display: flex;
+    max-width: 1240px;
+    padding: 0 20px;
+
     flex-wrap: wrap;
 
     .comment-list {
@@ -40,6 +43,10 @@
     &__action-panel {
         text-align: right;
         width: 150px;
+
+        > * {
+            min-width: 120px;
+        }
     }
 
     .new-comment {

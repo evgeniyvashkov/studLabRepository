@@ -13,7 +13,6 @@ export class DashboardPage extends PureComponent {
         tasksFetchData('http://localhost:3001/tasks');
         newCommentsFetchData('http://localhost:3001/newComments');
         myCommentsFetchData('http://localhost:3001/myComments');
-
     }
 
     render() {

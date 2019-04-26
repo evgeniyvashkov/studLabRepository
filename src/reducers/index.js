@@ -4,6 +4,7 @@ import { tariffPlans } from './fetchTarifPlansList';
 import { tasks } from './fetchTasksList';
 import { newComments } from './fetchNewCommentsList';
 import { myComments } from './fetchMyCommentsList';
+import { taskCommentsList } from './fetchTaskCommentsList';
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     tasks,
     newComments,
     myComments,
-    tariffPlans
+    tariffPlans,
+    taskCommentsList
 });
 
 export default rootReducer;
