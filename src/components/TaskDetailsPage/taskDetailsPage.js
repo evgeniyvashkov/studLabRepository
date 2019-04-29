@@ -1,5 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 
+import { HOST } from '../../constants'
+
 import { Button } from '../Button'
 import { TaskCommentsList } from '../TaskCommentsList'
 import { NewComment } from '../NewComment'
@@ -12,24 +14,16 @@ export class TaskDetailsPage extends PureComponent {
     }
 
     onAddComment = () => {
-        // debugger
-
-        
-
         console.log('send comment to server', this.props);
         const { fetchTaskComments } = this.props;
 
-        fetchTaskComments('http://localhost:3001/taskComments');
-
-        this.props.taskComments.push({
-            "id":1,"author":"Piter Abramov","date":"12.02.2019","message":"111111111111111"
-        })
+        fetchTaskComments(`${HOST}/taskComments`);
     }
 
     componentDidMount() {
         console.log('rerender', this.props)
         const { fetchTaskComments } = this.props;
-        fetchTaskComments('http://localhost:3001/taskComments');
+        fetchTaskComments(`${HOST}/taskComments`);
     }
 
     render() {
@@ -60,8 +54,4 @@ export class TaskDetailsPage extends PureComponent {
         )
     }
 }
-
-
-
-
 

@@ -2,7 +2,7 @@ import {
     FETCH_MY_COMMENTS,
     FETCH_MY_COMMENTS_SUCCESS,
     FETCH_MY_COMMENTS_FAILED
-} from '../actions/constants'
+} from '../actions/constants';
 
 const fetchMyComments = () => ({
     type: FETCH_MY_COMMENTS,

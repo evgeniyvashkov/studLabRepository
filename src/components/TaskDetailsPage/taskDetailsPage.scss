@@ -19,8 +19,10 @@
 
 .task-details {
     display: flex;
-    max-width: 1240px;
+    max-width: 1220px;
     padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
 
     flex-wrap: wrap;
 

@@ -30,6 +30,3 @@ export const taskCommentsList = (state = initialState, action) => {
         }
     }
 }
-
-
-

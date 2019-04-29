@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
+import {HOST} from '../../constants';
+
 import { PromoSection } from '../PromoSection';
 import { PricingSection } from '../PricingSection';
 import { Slider } from '../Slider';
@@ -13,7 +15,7 @@ export class HomePage extends Component {
 
     componentDidMount() {
         const { fetchTariffPlans } = this.props;
-        fetchTariffPlans('http://localhost:3001/tariffs')
+        fetchTariffPlans(`${HOST}/tariffs`);
     }
 
     render() {
