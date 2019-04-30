@@ -6,8 +6,8 @@ import { fetchTaskComments } from '../actions/fetchTaskCommentList'
 
 
 
-const mapStateToProps = ({ taskCommentsList }) => ({
-    taskComments: taskCommentsList.taskCommentsList
+const mapStateToProps = ({ taskComments }) => ({
+    taskComments: taskComments.taskCommentsList
 })
 const mapDispatchToProps = (dispatch) => ({
     fetchTaskComments: (url) => { dispatch(fetchTaskComments(url)) }

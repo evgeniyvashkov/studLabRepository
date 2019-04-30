@@ -4,16 +4,17 @@ import { Button } from '../Button'
 import { Checkbox } from '../Checkbox'
 
 export class NewComment extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            message: '',
-            author: 'Eugene Vashkov'
-        }
+    state = {
+        message: '',
     }
 
     handleChange = (event) => {
-        this.setState({message: event.target.value});
+        this.setState({ message: event.target.value });
+    }
+
+    handeleAddcomment = () => {
+        this.props.sendComment(this.state.message);
+        this.setState({ message: '' })
     }
 
     render() {
@@ -34,10 +35,7 @@ export class NewComment extends PureComponent {
                         type="submit"
                         className="button-green"
                         value="add comment"
-                        onClick={() => {
-                            console.log(this.state, 'state')
-                        }}
-
+                        onClick={this.handeleAddcomment}
                     />
                 </form>
             </div>

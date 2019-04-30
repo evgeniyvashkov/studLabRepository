@@ -10,7 +10,7 @@ const initialState = {
     failed: false
 }
 
-export const taskCommentsList = (state = initialState, action) => {
+export const taskComments = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_TASK_COMMENTS_LIST:
             return {

@@ -24,37 +24,39 @@
     margin: 0 auto;
     box-sizing: border-box;
 
-    flex-wrap: wrap;
+    &__description {
+        margin-bottom: 20px;
 
-    .comment-list {
-        margin-right: 150px;
+        .title {
+            text-align: left;
+            margin-bottom: 10px;
+        }
     }
 
-    &__description {
-        width: 70%;
-        flex-grow: 1;
-        box-sizing: border-box;
-        padding: 10px 20px;
+    &__comments {
+        .title {
+            margin-bottom: 10px;
+            text-align: left;
+        }
 
-        >* {
+        .comments-list__item {
+            padding: 0;
             margin-bottom: 20px;
-            width: 85%;
         }
     }
 
     &__action-panel {
-        text-align: right;
         width: 150px;
+        margin-left: 20px;
+        text-align: right;
 
-        > * {
+        .button {
             min-width: 120px;
         }
     }
 
     .new-comment {
         width: 100%;
-        max-width: 500px;
-        margin-left: 30px;
 
         &__input-field {
             display: block;
@@ -63,21 +65,14 @@
             padding: 8px;
             resize: vertical;
             width: 100%;
-            max-width: 700px;
             border-radius: 12px;
             box-sizing: border-box;
             margin: 10px 0;
         }
 
         .button-green {
+            display: block;
             margin: 10px 0;
-            float: right;
-
-            &::after {
-                content: '';
-                display: block;
-                clear: both;
-            }
         }
     }
 }
