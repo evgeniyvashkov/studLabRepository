@@ -12,9 +12,12 @@ export class NewComment extends PureComponent {
         this.setState({ message: event.target.value });
     }
 
-    handeleAddcomment = () => {
-        this.props.sendComment(this.state.message);
-        this.setState({ message: '' })
+    handeleAddcomment = (event) => {
+        event.preventDefault()
+        if (this.state.message) {
+            this.props.sendComment(this.state.message);
+            this.setState({ message: '' })
+        }
     }
 
     render() {

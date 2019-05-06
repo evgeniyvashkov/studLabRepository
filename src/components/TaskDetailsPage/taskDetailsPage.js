@@ -25,11 +25,10 @@ export class TaskDetailsPage extends PureComponent {
             })
         })
 
-            .then(resolve => fetchTaskComments(`${HOST}/taskComments`))
+            .then(res => fetchTaskComments(`${HOST}/taskComments`))
     }
 
-    componentDidMount() {
-        console.log('rerender', this.props)
+    componentDidMount() { 
         const { fetchTaskComments } = this.props;
         fetchTaskComments(`${HOST}/taskComments`);
     }
