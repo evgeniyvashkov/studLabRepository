@@ -7,10 +7,11 @@ import store from './store'
 import AppContainer from './containers/AppContainer';
 import homePageContainer from './containers/homePageContainer';
 import DashboardContainer from './containers/dashboardContainer'
+import { TaskDetailsPageContainer } from './containers/taskDetailsPageContainer';
 
 import { RegistrationPage } from './components/RegistrationPage';
 import { LicensePage } from './components/LicensePage';
-import { TaskDetailsPageContainer } from './containers/taskDetailsPageContainer';
+import { CreateTaskPage } from './components/CreateTaskPage';
 
 
 ReactDOM.render((
@@ -23,6 +24,7 @@ ReactDOM.render((
                     <Route path="/license" component={LicensePage} />
                     <Route path="/dashboard" component={DashboardContainer} />
                     <Route path="/task-details" component={TaskDetailsPageContainer} />
+                    <Route path="/create-task" component={CreateTaskPage} />
                 </Switch>
             </AppContainer>
         </BrowserRouter>

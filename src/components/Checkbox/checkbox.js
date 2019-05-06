@@ -11,7 +11,7 @@ export const Checkbox = ({ id, children, ...attrs }) => {
                 {...attrs}
             />
 
-            <label className="checkbox__label" 
+            <label className="checkbox__label"
                 htmlFor={id}>
                 {children}
             </label>

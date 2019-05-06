@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 
 import { Button } from '../Button'
 import { Checkbox } from '../Checkbox'
+import { Textarea } from '../Textarea'
 
 export class NewComment extends PureComponent {
     state = {

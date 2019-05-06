@@ -13,7 +13,8 @@ const rootReducer = combineReducers({
     newComments,
     myComments,
     tariffPlans,
-    taskComments
+    taskComments,
+    
 });
 
 export default rootReducer;
