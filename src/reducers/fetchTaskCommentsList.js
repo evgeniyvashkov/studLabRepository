@@ -25,6 +25,12 @@ export const taskComments = (state = initialState, action) => {
                 loading: action.loading,
             }
 
+            case FETCH_TASK_COMMENTS_LIST_FAILED:
+            return {
+                ...state,
+                failed: true
+            }
+
         default: {
             return state;
         }

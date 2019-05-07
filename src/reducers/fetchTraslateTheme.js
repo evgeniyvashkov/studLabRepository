@@ -2,7 +2,7 @@ import {
     FETCH_TRANSLATE_THEME_LIST,
     FETCH_TRANSLATE_THEME_LIST_SUCCESS,
     FETCH_TRANSLATE_THEME_LIST_FAILED,
-} from './constants';
+} from '../actions/constants.js';
 
 const initialState = {
     loading: false,
@@ -10,7 +10,7 @@ const initialState = {
     failed: false
 }
 
-export const translateThemeList = (state = initialState, action) => {
+export const translateTheme = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_TRANSLATE_THEME_LIST:
             return {

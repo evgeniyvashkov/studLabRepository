@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import './textarea.scss'
 
 export const Textarea = ({
-    className, label, error, ...attrs
+    className, label, name, error, ...attrs
 }) => {
     
     const classes = classNames(
@@ -22,6 +22,7 @@ export const Textarea = ({
             }
 
             <textarea
+                name={name}
                 className={classes}
                 {...attrs}
             ></textarea>
