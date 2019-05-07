@@ -1,120 +1,131 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component } from "react";
 
-import { HOST } from '../../constants';
-import { Textarea } from '../Textarea';
-import { Input } from '../Input';
-import { Checkbox } from '../Checkbox';
-import { CheckboxField } from '../CheckboxField';
-import { Button } from '../Button';
-import { UploadFile } from '../UploadFile'
+import { HOST } from "../../constants";
+import { Textarea } from "../Textarea";
+import { Input } from "../Input";
+import { Checkbox } from "../Checkbox";
+import { CheckboxField } from "../CheckboxField";
+import { Button } from "../Button";
+import { UploadFile } from "../UploadFile";
 
-import './createTaskPage.scss';
-
-const checboxes = [
-    {
-        "id": "1",
-        "theme": "medicine"
-    },
-    {
-        "id": "2",
-        "theme": "technology"
-    },
-    {
-        "id": "3",
-        "theme": "fantastic"
-    },
-    {
-        "id": "4",
-        "theme": "science"
-    },
-    {
-        "id": "5",
-        "theme": "biology"
-    },
-    {
-        "id": "6",
-        "theme": "article"
-    },
-    {
-        "id": "7",
-        "theme": "Informatic Technology"
-    },
-    {
-        "id": "8",
-        "theme": "fashion"
-    },
-    {
-        "id": "9",
-        "theme": "nature"
-    },
-    {
-        "id": "10",
-        "theme": "animals"
-    }
-]
+import "./createTaskPage.scss";
 
 export class CreateTaskPage extends Component {
+  state = {
+    taskTitle: "",
+    taskContent: "",
+    translateFrom: "",
+    translateTo: ""
+  };
 
-    componentDidMount() {
-        
-    }
+  componentDidMount() {
+    const { fetchTransleteThemes } = this.props;
+    fetchTransleteThemes(`${HOST}/checkboxThemesField`);
+  }
 
-    render() {
-        return (
-            <Fragment>
-                <h1 className="page-content__title">Create Task</h1>
-                <div className="new-task__details">
-                    <form
-                        action="#"
-                        className="new-task__form"
-                        method="POST"
-                        encType="mumultipart/form-data"
-                    >
-                        <Textarea
-                            label="Task Description:"
-                            className="description"
-                        />
+  hendleInputChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value
+    });
+  };
+
+  onSubmitForm = event => {
+    event.preventDefault();
+
+    fetch(`${HOST}/tasks`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body: JSON.stringify({
+        taskId: Date.now(),
+        title: this.state.taskTitle,
+        text: this.state.taskContent,
+        dueDate: new Date().toLocaleDateString(),
+        status: "open"
+      })
+    });
+
+    this.setState({
+      taskTitle: "",
+      taskContent: "",
+      translateFrom: "",
+      translateTo: ""
+    });
 
 
-                        <Textarea
-                            label="Task Text:"
-                            className="task-content"
-                        />
+  };
 
-                        <UploadFile
-                            value="upload"
-                            id="uploadTask"
-                            label="txt/pdf/doc/docx, jpeg/png. max-size: 20mb."
-                        />
+  render() {
+    const { themeList } = this.props;
 
+    return (
+      <Fragment>
+        <h1 className="page-content__title">Create Task</h1>
+        <div className="new-task__details">
+          <form
+            action="#"
+            className="new-task__form"
+            method="POST"
+            encType="mumultipart/form-data"
+            onSubmit={this.onSubmitForm}
+          >
+            <Textarea
+              name="taskTitle"
+              label="Task Title:"
+              className="task-title"
+              value={this.state.taskTitle}
+              onChange={this.hendleInputChange}
+            />
 
-                        <Input
-                            label="Translate from:"
-                        />
+            <Textarea
+              name="taskContent"
+              label="Task Text:"
+              className="task-content"
+              value={this.state.taskContent}
+              onChange={this.hendleInputChange}
+            />
 
-                        <Input
-                            label="Translate to:"
-                        />
+            <UploadFile
+              value="upload"
+              id="uploadTask"
+              label="txt/pdf/doc/docx, jpeg/png. max-size: 20mb."
+            />
 
-                        <Checkbox id="review" value="review">
-                            review from other translators
-                        </Checkbox>
+            <Input
+              label="Translate from:"
+              onChange={this.hendleInputChange}
+              name="translateFrom"
+              value={this.state.translateFrom}
+            />
 
-                        <Checkbox id="urgent" value="urgent">
-                            urgent
-                        </Checkbox>
+            <Input
+              label="Translate to:"
+              onChange={this.hendleInputChange}
+              name="translateTo"
+              value={this.state.translateTo}
+            />
 
-                        <CheckboxField
-                            label="Chose theme(oprional):"
-                            chechboxes={checboxes}
-                        />
+            <Checkbox id="review" value="review">
+              review from other translators
+            </Checkbox>
 
-                        <Button
-                            value="Create"
-                            className="button-green form__button" />
-                    </form>
-                </div>
-            </Fragment>
-        )
-    }
-} 
+            <Checkbox id="urgent" value="urgent">
+              urgent
+            </Checkbox>
+
+            <CheckboxField
+              label="Chose theme(oprional):"
+              chechboxes={themeList}
+            />
+
+            <Button value="Create" className="button-green form__button" />
+          </form>
+        </div>
+      </Fragment>
+    );
+  }
+}

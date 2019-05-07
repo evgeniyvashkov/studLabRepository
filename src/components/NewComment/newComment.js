@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
 
-import { Button } from '../Button'
-import { Checkbox } from '../Checkbox'
-import { Textarea } from '../Textarea'
+import { Button } from '../Button';
+import { Checkbox } from '../Checkbox';
 
 export class NewComment extends PureComponent {
     state = {
