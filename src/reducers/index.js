@@ -8,13 +8,13 @@ import { taskComments } from "./fetchTaskCommentsList";
 import { translateTheme } from "./fetchTraslateTheme";
 
 const rootReducer = combineReducers({
-  loginStatus,
-  tasks,
-  newComments,
-  myComments,
-  tariffPlans,
-  taskComments,
-  translateTheme
+    loginStatus,
+    tasks,
+    newComments,
+    myComments,
+    tariffPlans,
+    taskComments,
+    translateTheme
 });
 
 export default rootReducer;
