@@ -17,6 +17,7 @@ export class TaskDetailsPage extends PureComponent {
             headers: HEADERS,
             method: "POST",
             body: JSON.stringify({
+                id: Math.random(),
                 message: comment,
                 author: userName
             })
