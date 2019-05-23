@@ -20,6 +20,7 @@ export class TaskDetailsPage extends PureComponent {
             },
             method: "POST",
             body: JSON.stringify({
+                id: Math.random(),
                 message: comment,
                 author: "Eugene Vaskov"
             })
