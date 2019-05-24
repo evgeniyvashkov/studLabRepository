@@ -1,3 +1,1 @@
-import { PageContent } from './pageContent';
-
-export { PageContent };
+export { PageContent } from './pageContent';

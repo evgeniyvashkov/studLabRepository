@@ -1,3 +1,1 @@
-import { TaskCommentsList } from './taskCommentsList'
-
-export { TaskCommentsList };
+export { TaskCommentsList } from './taskCommentsList'

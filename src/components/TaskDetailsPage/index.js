@@ -1,3 +1,1 @@
-import { TaskDetailsPage } from './taskDetailsPage'
-
-export { TaskDetailsPage }
+export { TaskDetailsPage } from './taskDetailsPage';

@@ -1,3 +1,1 @@
-import { LicensePage } from './licensePage';
-
-export { LicensePage };
+export { LicensePage } from './licensePage';

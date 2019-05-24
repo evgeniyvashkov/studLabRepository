@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import { HOST } from '../../constants'
+import { HOST, HEADERS } from '../../constants'
 
 import { Button } from '../Button'
 import { TaskCommentsList } from '../TaskCommentsList'
@@ -14,10 +14,7 @@ export class TaskDetailsPage extends PureComponent {
         const { fetchTaskComments, userInfo: { userName } } = this.props;
 
         fetch(`${HOST}/taskComments`, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: HEADERS,
             method: "POST",
             body: JSON.stringify({
                 message: comment,

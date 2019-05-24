@@ -1,3 +1,1 @@
-import { UserMenu } from './userMenu';
-
-export { UserMenu }
+export { UserMenu } from './userMenu';

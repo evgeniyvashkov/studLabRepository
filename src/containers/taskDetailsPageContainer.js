@@ -1,10 +1,7 @@
 import { connect } from 'react-redux';
 
 import { TaskDetailsPage } from '../components/TaskDetailsPage';
-
-import { fetchTaskComments } from '../actions/fetchTaskCommentList'
-
-
+import { fetchTaskComments } from '../actions/fetchTaskCommentList';
 
 const mapStateToProps = ({ taskComments, loginStatus : {userInfo} }) => ({
     taskComments: taskComments.taskCommentsList,

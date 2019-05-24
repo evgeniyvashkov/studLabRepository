@@ -1,3 +1,1 @@
-import { NewComment } from './newComment'
-
-export { NewComment }
+export { NewComment } from './newComment'

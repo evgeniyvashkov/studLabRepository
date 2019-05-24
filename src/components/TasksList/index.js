@@ -1,3 +1,1 @@
-import {TasksList} from './tasksList';
-
-export {TasksList} ;
+export {TasksList} from './tasksList';
