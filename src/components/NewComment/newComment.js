@@ -13,10 +13,14 @@ export class NewComment extends PureComponent {
     }
 
     handeleAddcomment = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+
+        const { sendComment } = this.props;
+        const messageText = this.state.message;
+
         if (this.state.message) {
-            this.props.sendComment(this.state.message);
-            this.setState({ message: '' })
+            sendComment(messageText);
+            this.setState({ message: '' });
         }
     }
 

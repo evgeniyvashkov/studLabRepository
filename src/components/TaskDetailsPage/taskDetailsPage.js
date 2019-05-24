@@ -11,7 +11,7 @@ import './taskDetailsPage.scss'
 export class TaskDetailsPage extends PureComponent {
     sendComment = (comment) => {
         console.log('send comment to server');
-        const { fetchTaskComments } = this.props;
+        const { fetchTaskComments, userInfo: { userName } } = this.props;
 
         fetch(`${HOST}/taskComments`, {
             headers: {
@@ -21,14 +21,14 @@ export class TaskDetailsPage extends PureComponent {
             method: "POST",
             body: JSON.stringify({
                 message: comment,
-                author: "Eugene Vaskov"
+                author: userName
             })
         })
 
-            .then(res => fetchTaskComments(`${HOST}/taskComments`))
+            .then(() => fetchTaskComments(`${HOST}/taskComments`))
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         const { fetchTaskComments } = this.props;
         fetchTaskComments(`${HOST}/taskComments`);
     }
