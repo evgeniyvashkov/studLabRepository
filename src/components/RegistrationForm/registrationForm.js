@@ -25,15 +25,10 @@ export class RegistrationForm extends PureComponent {
 
     handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log('Form sent');
-       this.setState({formValid: true})
+        this.setState({ formValid: true })
     }
 
     render() {
-        if (this.state.formValid) {
-            return (<Redirect to="/homePage" />)
-        }
-
         return (
             <form action="#"
                 method="POST"
