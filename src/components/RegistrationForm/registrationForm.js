@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { HOST, HEADERS } from '../../constants'
 
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -14,22 +15,56 @@ export class RegistrationForm extends PureComponent {
             cardNumber: '',
             password: '',
             repeatPassword: '',
+            email: 'zheka_cool@mail.ru',
+            userName: '2',
+            cardNumber: '3',
+            password: '4',
+            repeatPassword: '5',
             formValid: false
         }
     }
-
     onChangeInput = (e) => {
         const { value, name } = e.target;
-
         this.setState({
             [name]: value,
         })
     }
-
     handleOnSubmit = (e) => {
         e.preventDefault();
         this.setState({ formValid: true });
         console.log(this.state);
+
+        const {
+            email,
+            userName,
+            cardNumber,
+            password,
+            repeatPassword,
+            formValid
+        } = this.state
+
+        fetch(`${HOST}/login`, {
+            headers: HEADERS,
+            method: 'POST',
+            body: JSON.stringify({
+                email,
+                cardNumber,
+                userName,
+                password,
+                repeatPassword,
+                formValid
+            })
+        })
+            .then(res => {
+                if (res.status === 200) {
+                    return console.log('user created')
+                }
+
+                if (res.status === 400) {
+                    return console.log('user has been created')
+                }
+
+            })
     }
 
     render() {
@@ -47,7 +82,6 @@ export class RegistrationForm extends PureComponent {
                     value={this.state.email}
                     onChange={this.onChangeInput}
                 />
-
                 <Input
                     label="customer's username"
                     type="text"
@@ -56,7 +90,6 @@ export class RegistrationForm extends PureComponent {
                     value={this.state.userName}
                     onChange={this.onChangeInput}
                 />
-
                 <Input
                     label="Card number"
                     type="text"
@@ -65,7 +98,6 @@ export class RegistrationForm extends PureComponent {
                     value={this.state.cardNumber}
                     onChange={this.onChangeInput}
                 />
-
                 <Input
                     label="password"
                     type="password"
@@ -74,7 +106,6 @@ export class RegistrationForm extends PureComponent {
                     value={this.state.password}
                     onChange={this.onChangeInput}
                 />
-
                 <Input
                     label="Re-enter password"
                     type="password"
@@ -83,9 +114,7 @@ export class RegistrationForm extends PureComponent {
                     value={this.state.repeatPassword}
                     onChange={this.onChangeInput}
                 />
-
                 <Button className="form__button button-green" value="Log-in" />
-
                 <Checkbox id="registration-checkbox">
                     <Link to="/license">Some text for link</Link>
                 </Checkbox>
