@@ -1,5 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 
+import { HOST } from '../../constants'
+
 import { TasksList } from '../TasksList';
 import { CommentsList } from '../CommetsList';
 
@@ -10,10 +12,9 @@ export class DashboardPage extends PureComponent {
     componentDidMount() {
         const { tasksFetchData, newCommentsFetchData, myCommentsFetchData } = this.props;
 
-        tasksFetchData('http://localhost:3001/tasks');
-        newCommentsFetchData('http://localhost:3001/newComments');
-        myCommentsFetchData('http://localhost:3001/myComments');
-
+        tasksFetchData(`${HOST}/tasks`);
+        newCommentsFetchData(`${HOST}/newComments`);
+        myCommentsFetchData(`${HOST}/myComments`);
     }
 
     render() {
@@ -21,7 +22,7 @@ export class DashboardPage extends PureComponent {
 
         return (
             <Fragment>
-                <h1 className="page-contnet__title">My dashboard</h1>
+                <h1 className="page-content__title">My dashboard</h1>
 
                 <div className="dashboards">
                     <TasksList tasksList={tasksList} />

@@ -1,3 +1,1 @@
-import { PromoSection } from './promoSection';
-
-export { PromoSection };
+export { PromoSection } from './promoSection';

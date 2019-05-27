@@ -1,3 +1,1 @@
-import { TabPanel } from './tabPanel';
-
-export { TabPanel };
+export { TabPanel } from './tabPanel';

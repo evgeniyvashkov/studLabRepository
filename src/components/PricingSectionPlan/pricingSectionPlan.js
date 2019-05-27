@@ -5,7 +5,7 @@ import { showNotification } from '../PopUp/popUp';
 import './pricingSectionPlan.scss';
 
 export const PricingSectionPlan = (props) => {
-    const { title, activeUsers, price, handleClick } = props;
+    const { title, activeUsers, price } = props;
 
     return (
         <div className={`pricing-section__plan ${title}`}>

@@ -1,4 +1,9 @@
-.page-contnet__title {
-    margin: 20px 0 30px;
-    text-align: center;
+.page-content {
+    width: 100%;
+    margin: 80px auto;
+
+    &__title {
+        margin: 20px 0 30px;
+        text-align: center;
+    }
 }

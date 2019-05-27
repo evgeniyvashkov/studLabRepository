@@ -1,3 +1,1 @@
-import { PricingSectionPlan } from './pricingSectionPlan';
-
-export { PricingSectionPlan };
+export { PricingSectionPlan } from './pricingSectionPlan';

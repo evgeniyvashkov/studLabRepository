@@ -1,3 +1,1 @@
-import { DashboardPage } from './dashboardPage'
-
-export { DashboardPage }
+export { DashboardPage } from './dashboardPage';

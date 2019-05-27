@@ -1,3 +1,1 @@
-import {CommentsList} from './commentsList'
-
-export {CommentsList}
+export {CommentsList} from './commentsList';

@@ -1,3 +1,1 @@
-import { TaskItem } from './tasksItem';
-
-export { TaskItem }
+export { TaskItem } from './tasksItem';

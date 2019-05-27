@@ -19,6 +19,10 @@ export const Navigation = () => (
             <li className="navigation__item">
                 <Link to="/dashboard" className="navigation__item-link">Dashboard</Link>
             </li>
+
+            <li className="navigation__item">
+                <Link to="/task-details" className="navigation__item-link">Task-Details</Link>
+            </li>
         </ul>
     </nav>
 )

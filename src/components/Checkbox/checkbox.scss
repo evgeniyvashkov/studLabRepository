@@ -1,29 +1,32 @@
-input {
-    &[type="checkbox"] {
-        display: none;
-
-        + .checkbox__label {
-            vertical-align: middle;
-
-            &:before {
-                content: '';
-                display: inline-block;
+.checkbox {
+    display: inline-block;
+    input {
+        &[type="checkbox"] {
+            display: none;
+    
+            + .checkbox__label {
                 vertical-align: middle;
-                margin-right: 10px;
-                width: 24px;
-                height: 24px;
-                background: #fff;
-                border: 1px solid #d1d5da;
-                transition: background 300ms ease;
-                box-sizing: border-box;
-                cursor: pointer;
+    
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                    width: 24px;
+                    height: 24px;
+                    background: #fff;
+                    border: 1px solid #d1d5da;
+                    transition: background 300ms ease;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
             }
-        }
-
-        &:checked + .checkbox__label:before {
-            border: none;
-            background: url('checkboxIcon.png') no-repeat center;
-            background-size: cover;
+    
+            &:checked + .checkbox__label:before {
+                border: none;
+                background: url('checkboxIcon.png') no-repeat center;
+                background-size: cover;
+            }
         }
     }
 }

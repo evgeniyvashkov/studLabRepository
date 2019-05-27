@@ -6,9 +6,12 @@ import store from './store'
 
 import AppContainer from './containers/AppContainer';
 import homePageContainer from './containers/homePageContainer';
+import DashboardContainer from './containers/dashboardContainer'
+
 import { RegistrationPage } from './components/RegistrationPage';
 import { LicensePage } from './components/LicensePage';
-import DashboardContainer from './containers/dashboardContainer'
+import { TaskDetailsPageContainer } from './containers/taskDetailsPageContainer';
+
 
 ReactDOM.render((
     <Provider store={store}>
@@ -19,6 +22,7 @@ ReactDOM.render((
                     <Route path="/registration" component={RegistrationPage} />
                     <Route path="/license" component={LicensePage} />
                     <Route path="/dashboard" component={DashboardContainer} />
+                    <Route path="/task-details" component={TaskDetailsPageContainer} />
                 </Switch>
             </AppContainer>
         </BrowserRouter>
