@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 
-import { HOST } from "../../constants";
+import { HOST, HEADERS } from "../../constants";
 import { Textarea } from "../Textarea";
 import { Input } from "../Input";
 import { Checkbox } from "../Checkbox";
@@ -11,12 +11,15 @@ import { UploadFile } from "../UploadFile";
 import "./createTaskPage.scss";
 
 export class CreateTaskPage extends Component {
-  state = {
-    taskTitle: "",
-    taskContent: "",
-    translateFrom: "",
-    translateTo: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      taskTitle: "",
+      taskContent: "",
+      translateFrom: "",
+      translateTo: ""
+    };
+  }
 
   componentDidMount() {
     const { fetchTransleteThemes } = this.props;
@@ -35,10 +38,7 @@ export class CreateTaskPage extends Component {
     event.preventDefault();
 
     fetch(`${HOST}/tasks`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
+      headers: HEADERS,
       method: "POST",
       body: JSON.stringify({
         taskId: Date.now(),
@@ -55,8 +55,6 @@ export class CreateTaskPage extends Component {
       translateFrom: "",
       translateTo: ""
     });
-
-
   };
 
   render() {

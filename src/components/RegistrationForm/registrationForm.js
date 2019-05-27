@@ -6,13 +6,16 @@ import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
 
 export class RegistrationForm extends PureComponent {
-    state = {
-        email: '',
-        userName: '',
-        cardNumber: '',
-        password: '',
-        repeatPassword: '',
-        formValid: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            userName: '',
+            cardNumber: '',
+            password: '',
+            repeatPassword: '',
+            formValid: false
+        }
     }
 
     onChangeInput = (e) => {
@@ -25,7 +28,8 @@ export class RegistrationForm extends PureComponent {
 
     handleOnSubmit = (e) => {
         e.preventDefault();
-        this.setState({ formValid: true })
+        this.setState({ formValid: true });
+        console.log(this.state);
     }
 
     render() {

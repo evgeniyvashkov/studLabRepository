@@ -5,8 +5,11 @@ import { TabPanelList } from '../TabPanelList';
 import './tabPanel.scss';
 
 export class TabPanel extends Component {
-    state = {
-        activeTab: null,
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeTab: null,
+        }
     }
 
     componentDidMount() {
