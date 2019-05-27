@@ -1,3 +1,1 @@
-import { UploadFile } from './uploadFile';
-
-export { UploadFile }
+export { UploadFile } from './uploadFile';

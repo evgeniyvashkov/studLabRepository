@@ -1,3 +1,1 @@
-import { CreateTaskPage } from './createTaskPage';
-
-export { CreateTaskPage }
+export { CreateTaskPage } from './createTaskPage';
