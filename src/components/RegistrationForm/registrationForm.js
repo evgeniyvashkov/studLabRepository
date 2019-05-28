@@ -15,11 +15,6 @@ export class RegistrationForm extends PureComponent {
             cardNumber: '',
             password: '',
             repeatPassword: '',
-            email: 'zheka_cool@mail.ru',
-            userName: '2',
-            cardNumber: '3',
-            password: '4',
-            repeatPassword: '5',
             formValid: false
         }
     }
@@ -32,7 +27,7 @@ export class RegistrationForm extends PureComponent {
     handleOnSubmit = (e) => {
         e.preventDefault();
         this.setState({ formValid: true });
-        console.log(this.state);
+        // console.log(this.state);
 
         const {
             email,
@@ -55,16 +50,7 @@ export class RegistrationForm extends PureComponent {
                 formValid
             })
         })
-            .then(res => {
-                if (res.status === 200) {
-                    return console.log('user created')
-                }
-
-                if (res.status === 400) {
-                    return console.log('user has been created')
-                }
-
-            })
+            .then(res => console.log(res))
     }
 
     render() {
