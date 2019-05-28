@@ -1,11 +1,14 @@
 import React, { PureComponent } from 'react'
 
-import { Button } from '../Button'
-import { Checkbox } from '../Checkbox'
+import { Button } from '../Button';
+import { Checkbox } from '../Checkbox';
 
 export class NewComment extends PureComponent {
-    state = {
-        message: '',
+    constructor(props) {
+        super(props);
+        this.state = {
+            message: '',
+        }
     }
 
     handleChange = (event) => {
