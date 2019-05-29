@@ -10,50 +10,80 @@ export class RegistrationForm extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
+            email: '1@1.ty',
+            isEmailValid: false,
+
             userName: '',
+
             cardNumber: '',
-            password: '',
-            repeatPassword: '',
-            formValid: false
+            isCardNumberValid: false,
+
+            password: '123123123a',
+            isPasswordValid: false,
+
+            repeatPassword: '123123123a',
+            isPassMatch: '',
+
+            isFormValid: false,
+            isRegistred: false,
         }
     }
+
     onChangeInput = (e) => {
         const { value, name } = e.target;
         this.setState({
             [name]: value,
         })
     }
+
+    checkPassword = () => {
+        const { password, repeatPassword } = this.state;
+        const passReg = /(?=.*\d)(?=.*[a-zA-Z])(?=.{8,})/;
+        const isPasswordValid = passReg.test(password);
+        const isPassMatch = (password === repeatPassword);
+
+        return {
+            isPassMatch,
+            isPasswordValid
+        }
+    }
+
+    checkForm = () => {
+        const { isPasswordValid, isPassMatch } = this.checkPassword();
+        const isFormValid = this.checkPassword();
+
+        // console.log(this.checkPassword(), 'checkform')
+        // this.setState({
+        //     isFormValid: isFormValid && isPasswordValid && isPassMatch
+        // })
+    }
+
     handleOnSubmit = (e) => {
         e.preventDefault();
-        this.setState({ formValid: true });
-        // console.log(this.state);
 
-        const {
-            email,
-            userName,
-            cardNumber,
-            password,
-            repeatPassword,
-            formValid
-        } = this.state
+        const { email, userName, cardNumber, password } = this.state
 
         fetch(`${HOST}/login`, {
             headers: HEADERS,
             method: 'POST',
-            body: JSON.stringify({
-                email,
-                cardNumber,
-                userName,
-                password,
-                repeatPassword,
-                formValid
-            })
+            body: JSON.stringify({ email, cardNumber, userName, password })
         })
-            .then(res => console.log(res))
+            .then(response => response.json())
+            .then(({ success, message }) => {
+                this.setState({
+                    isRegistred: success
+                })
+            });
     }
 
     render() {
+        console.log('state', this.state)
+        if (this.state.isRegistred) {
+            return (
+                <Redirect to='/dashboard' />
+            )
+        }
+
         return (
             <form action="#"
                 method="POST"
@@ -67,6 +97,7 @@ export class RegistrationForm extends PureComponent {
                     name="email"
                     value={this.state.email}
                     onChange={this.onChangeInput}
+                    // error={}
                 />
                 <Input
                     label="customer's username"
