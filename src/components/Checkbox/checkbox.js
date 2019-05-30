@@ -1,11 +1,15 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './checkbox.scss';
 
-export const Checkbox = ({ id, children, ...attrs }) => {
-
+export const Checkbox = ({ id, children, error, ...attrs }) => {
+    const classes = classNames(
+        'checkbox',
+        { error }
+    )
     return (
-        <div className="checkbox">
+        <div className={classes}>
             <input
                 id={id}
                 {...attrs}
