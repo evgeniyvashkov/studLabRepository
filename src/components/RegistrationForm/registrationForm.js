@@ -133,11 +133,12 @@ export class RegistrationForm extends PureComponent {
             body: JSON.stringify({ email, cardNumber, userName, password })
         })
             .then(response => response.json())
-            .then(({ success, message }) => {
-                console.log(success)
+            .then(({ success, message, token }) => {
                 this.setState({
                     isRegistred: success
                 })
+
+                localStorage.setItem('token' , token);
             });
     }
 
