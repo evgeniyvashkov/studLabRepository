@@ -3,15 +3,18 @@ import React, { Component } from 'react';
 import './form.scss'
 
 export class Form extends Component {
-    state = {
-        usernameIsEmpty: true
+    constructor(props) {
+        super(props);
+        this.state = {
+            usernameIsEmpty: true
+        }
     }
 
     onchangeInput = (e) => {
         const { value } = e.target;
 
         this.setState(() => ({
-            usernameIsEmpty: value.length === 0 
+            usernameIsEmpty: value.length === 0
         }))
     }
 
